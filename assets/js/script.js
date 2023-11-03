@@ -51,6 +51,28 @@ document.getElementById("user-guess").addEventListener("keydown", function (even
     }
 });
 
+/** takes the word and row input and places each letter on the board
+ * then resets focus for a new entry
+ */
+function addWordToGrid(userguess, row) {
+
+    //loop though child letter elements and add each letterID
+    if (userguess === null || row === null) {
+        //do nothing
+    } else { }
+
+    for (let i = 0; i < 5; i++) {
+        let destinationID = `letter-${row}${i}`;
+        console.log(destinationID);
+        console.log(userguess.charAt(i));
+        document.getElementById(destinationID).textContent = userguess.charAt(i);
+    }
+
+    document.getElementById("user-guess").value = "";
+	document.getElementById("user-guess").focus();
+}
+
+/** main game loop. check turn elelemt on page to end game after set number of guesses */
 function mainGameLoop() {
     let turnNumber = parseInt(document.getElementById('turnNumber').textContent);
     console.log('turn number: ' + turnNumber);
@@ -77,20 +99,3 @@ function mainGameLoop() {
     }
 }
 
-function addWordToGrid(userguess, row) {
-
-    //loop though child letter elements and add each letterID
-    if (userguess === null || row === null) {
-        //do nothing
-    } else { }
-
-    for (let i = 0; i < 5; i++) {
-        let destinationID = `letter-${row}${i}`;
-        console.log(destinationID);
-        console.log(userguess.charAt(i));
-        document.getElementById(destinationID).textContent = userguess.charAt(i);
-    }
-
-    document.getElementById("user-guess").value = "";
-	document.getElementById("user-guess").focus();
-}
