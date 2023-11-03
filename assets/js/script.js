@@ -38,8 +38,8 @@ document.getElementById('level-easy').addEventListener('click', setEasy);
 document.getElementById('level-medium').addEventListener('click', setNormal);
 document.getElementById('level-master').addEventListener('click', setMaster);
 
-document.getElementById('guess-button').addEventListener('click', mainGameLoop); 
-document.getElementById('gear-icon').addEventListener('click', gameMenu); 
+document.getElementById('guess-button').addEventListener('click', mainGameLoop);
+document.getElementById('gear-icon').addEventListener('click', gameMenu);
 document.getElementById("user-guess").addEventListener("keydown", function (event) {
     if (event.key === "Enter") {
         mainGameLoop();
@@ -51,6 +51,7 @@ document.getElementById("user-guess").addEventListener("keydown", function (even
 
 // GAME SETUP ON RELOAD
 document.getElementById('answer-word').innerHTML = generateRandomWord(); // get random word form array and add it to the hidden solution element
+console.log (document.getElementById('answer-word').innerHTML);
 
 const level = document.getElementById('selected-level');
 if (level.textContent == "MASTER") {
@@ -64,17 +65,17 @@ if (level.textContent == "MASTER") {
 setupGuessRows(numberOfRows);
 document.getElementById("user-guess").focus();
 
-
-
 /** takes the word and row input and places each letter on the board
  * then resets focus for a new entry
  */
 function addWordToGrid(userguess, row) {
+    // get answer to compare to guess
+    answer = document.getElementById('answer-word').innerHTML;
 
     //loop though child letter elements and add each letterID
     if (userguess === null || row === null) {
         //do nothing
-    } else { }
+    } else { 
 
     for (let i = 0; i < 5; i++) {
         let destinationID = `letter-${row}${i}`;
@@ -84,6 +85,7 @@ function addWordToGrid(userguess, row) {
 
     document.getElementById("user-guess").value = "";
     document.getElementById("user-guess").focus();
+}
 }
 
 /** main game loop. check turn elelemt on page to end game after set number of guesses */
@@ -98,8 +100,12 @@ function mainGameLoop() {
         let regex = /^[a-zA-Z]+$/; //allowed letters for answer
 
         if (userguess.length = 5 && regex.test(userguess)) {
+            // check and add word to grid
+            addWordToGrid(userguess, turnNumber);
+            // verify colors for correct letters
+            colorLetters(userguess, turnNumber);
+            //check if game won
 
-            addWordToGrid(userguess, turnNumber) // add word to grid
             console.log(userguess);
             /* increment turn at the end */
             document.getElementById('turnNumber').textContent = turnNumber + 1; // increment turn number
@@ -110,7 +116,7 @@ function mainGameLoop() {
         }
     } else {
         // GAME OVER
-        alert('sorry, game over')
+        alert("sorry, you've run out of guesses")
     }
 }
 
@@ -127,22 +133,39 @@ function setEasy() {
     console.log("easy");
     document.getElementById('selected-level').innerHTML = "EASY";
     gameMenu();
-    mainGameLoop;
+    mainGameLoop();
 }
 function setNormal() {
     console.log('medium');
     document.getElementById('selected-level').innerHTML = "NORMAL";
     gameMenu();
-    mainGameLoop;
+    mainGameLoop();
 }
 function setMaster() {
     console.log('hard');
     document.getElementById('selected-level').innerHTML = "MASTER";
     gameMenu();
-    mainGameLoop;
+    mainGameLoop();
 }
 
 function restart() {
- alert ("restart")
+    alert("This will restart the game!")
+    gameMenu();
+    mainGameLoop();
 }
 
+function colorLetters (userguess, row) {
+    answer = document.getElementById('answer-word').innerHTML;
+     //loop though child letter elements and add each letterID
+     if (row === null) {
+        //do nothing
+    } else { 
+
+    for (let i = 0; i < 5; i++) {
+        let destinationID = `letter-${row}${i}`;
+            if ()
+        console.log(destinationID);
+    }
+
+}
+}
