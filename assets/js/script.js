@@ -29,6 +29,24 @@ function setupGuessRows(guesses) {
     }
 }
 
+// ####################################################################################
+// ########################### setup eventlisteners ###################################
+// ####################################################################################
+
+document.getElementById('restart-button').addEventListener('click', restart);
+document.getElementById('level-easy').addEventListener('click', setEasy);
+document.getElementById('level-medium').addEventListener('click', setNormal);
+document.getElementById('level-master').addEventListener('click', setMaster);
+
+document.getElementById('guess-button').addEventListener('click', mainGameLoop); 
+document.getElementById('gear-icon').addEventListener('click', gameMenu); 
+document.getElementById("user-guess").addEventListener("keydown", function (event) {
+    if (event.key === "Enter") {
+        mainGameLoop();
+    }
+});
+// ###################################################################################
+// ###################################################################################
 
 
 // GAME SETUP ON RELOAD
@@ -46,25 +64,7 @@ if (level.textContent == "MASTER") {
 setupGuessRows(numberOfRows);
 document.getElementById("user-guess").focus();
 
-// ############################################################################
-// ####################### setup eventlisteners ###############################
-// ############################################################################
 
-document.getElementById('restart-button').addEventListener('click', mainGameLoop);
-document.getElementById('level-easy').addEventListener('click', setLevel("EASY"));
-document.getElementById('level-medium').addEventListener('click', setLevel("MEDIUM")p);
-document.getElementById('level-master').addEventListener('click', setLevel("MASTER"));
-
-document.getElementById('guess-button').addEventListener('click', mainGameLoop); 
-document.getElementById('gear-icon').addEventListener('click', gameMenu); 
-document.getElementById("user-guess").addEventListener("keydown", function (event) {
-    if (event.key === "Enter") {
-        mainGameLoop();
-    }
-});
-
-// ############################################################################
-// ############################################################################
 
 /** takes the word and row input and places each letter on the board
  * then resets focus for a new entry
@@ -121,5 +121,28 @@ function gameMenu() {
     } else {
         document.getElementById("popup-level").style.display = "none";
     }
+}
+
+function setEasy() {
+    console.log("easy");
+    document.getElementById('selected-level').innerHTML = "EASY";
+    gameMenu();
+    mainGameLoop;
+}
+function setNormal() {
+    console.log('medium');
+    document.getElementById('selected-level').innerHTML = "NORMAL";
+    gameMenu();
+    mainGameLoop;
+}
+function setMaster() {
+    console.log('hard');
+    document.getElementById('selected-level').innerHTML = "MASTER";
+    gameMenu();
+    mainGameLoop;
+}
+
+function restart() {
+ alert ("restart")
 }
 
