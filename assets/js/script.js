@@ -51,14 +51,15 @@ function mainGameLoop() {
     let turnNumber = parseInt(document.getElementById('turnNumber').textContent);
     console.log('turn number: ' + turnNumber);
 
-    if (turnNumber < numberOfRows) {
+    if (turnNumber < numberOfRows - 1) {
 
         let userguess = document.getElementById('user-guess').value;
         userguess = userguess.toLowerCase();
         let regex = /^[a-zA-Z]+$/; //allowed letters for answer
 
         if (userguess.length = 5 && regex.test(userguess)) {
-            document.getElementById('turnNumber').textContent = turnNumber + 1;
+            document.getElementById('turnNumber').textContent = turnNumber + 1; // increment turn number
+            addWordToGrid(userguess, turnNumber) // add word to grid
             console.log(userguess);
 
         } else {
@@ -72,3 +73,17 @@ function mainGameLoop() {
     }
 }
 
+function addWordToGrid(userguess, row) {
+
+    //loop though child letter elements and add each letterID
+    if (userguess === null || row === null) {
+        //do nothing
+    } else { }
+
+    for (let i = 0; i < 5; i++) {
+        let destinationID = `letter-${row}${i}`;
+        console.log(destinationID);
+        console.log(userguess.charAt(i));
+        document.getElementById(destinationID).textContent = userguess.charAt(i);
+    }
+}
