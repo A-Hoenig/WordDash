@@ -30,8 +30,8 @@ function setupGuessRows() {
       string = string + `
       </section>
       `
-          
-    console.log(string)
+          guessRows.insertAdjacentHTML("beforeend", string);
+    console.log(string) //delete this once it works
     }
 
   
