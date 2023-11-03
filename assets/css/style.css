@@ -208,3 +208,7 @@ body {
 #answer-word {
     font-size: 2em;
 }
+
+#turn-number {
+    display: none;
+}

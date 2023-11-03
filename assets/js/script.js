@@ -52,7 +52,7 @@ const level = document.getElementById('selected-level');
 // }
 // setup eventlisteners
 document.getElementById('guess-button').addEventListener('click', addWordToGrid); // left clicks
-
+let turnNumber = 1
 
 
 function addWordToGrid (){
@@ -61,9 +61,11 @@ function addWordToGrid (){
   let regex = /^[a-zA-Z]+$/; //allowed letters for answer
   
   if (userguess.length = 5 && regex.test(userguess)) {
+
     console.log (userguess);
+
   } else {
-    alert('not a valid word');
+    alert('please input 5 letters!');
   }
 }
 
