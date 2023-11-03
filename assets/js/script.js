@@ -5,11 +5,13 @@ function generateRandomWord() {
     return words[Math.floor(Math.random() * words.length)]
 }
 
-let answer = generateRandomWord();
-console.log(answer);
+// let answer = generateRandomWord();
+document.getElementById('answer-word').innerHTML = generateRandomWord();
 
-/** generates a dynamic number of rows with unique Id for each letter box. (format: id='letter-xn'
- * where x is the row and n is the nth letter in that row)
+
+/** generates a dynamic number of rows with unique Id for each letter box. (Format: id='letter-xn'
+ * where x is the row and n is the nth letter in that row).
+ * Number of rows based on #selected-level element
  */
 function setupGuessRows() {
     const level = document.getElementById('selected-level');
@@ -24,17 +26,17 @@ function setupGuessRows() {
     }
 
     /* for loop to build guess row HTML based on level */
-    for (let i = 0; i < guesses ; i++) {
-        let string = "<section class='guess-row' id='guess-" + (i) + "'>";
+    for (let i = 0; i < guesses - 1 ; i++) {
+        let string = "<section class='guess-row' id='guess-" + (i+1) + "'>";
         for (let r = 0; r < 5; r++) {
           string = string + `
-          <div class="letter-box" id="letter-${i}${r}"></div>`
+          <div class="letter-box" id="letter-${i+1}${r}"></div>`
         }
       string = string + `
       </section>
       `
           guessRows.insertAdjacentHTML("beforeend", string);
-    console.log(string) //delete this once it works
+    // console.log(string) //delete this once it works
     }
 
   
