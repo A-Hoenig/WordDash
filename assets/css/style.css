@@ -23,6 +23,9 @@ h1 {
     font-size: 2em;
 }
 
+#level-label{
+    align-self: center;
+}
 /* header title showing current difficulty */
 #selected-level {
     font-size: 1.5em;
@@ -51,13 +54,11 @@ body {
     min-width: 400px;
 }
 
+/* create 2 row grid 1 for header info and one large one for game area */
 #game-area {
     height: 100vh;
     display: grid;
     grid-template-rows: auto 1fr;
-    grid-template-areas:
-        'header'
-        'main';
 }
 
 /* positioning of one row of letters */
@@ -66,7 +67,7 @@ body {
     justify-content: center;
 }
 
-/* standard style of a letter box */
+/* standard style of a letter box/tile */
 .letter-box {
     background: burlywood;
     border: 3px solid brown;
@@ -78,12 +79,6 @@ body {
     font-weight: 900;
     font-size: 3em;
     border-radius: 10px;
-}
-
-/* class to highlight which box will input next letter*/
-.highlight {
-    border: 3px solid black;
-    background: white;
 }
 
 /* class to highlight which box contains a letter in correct position*/
@@ -189,7 +184,6 @@ body {
     background: green;
     cursor: pointer;
 }
-
 
 /* hide popups*/
 /* style of level select popup - default hidden */
