@@ -45,14 +45,26 @@ if (level.textContent == "MASTER") {
 
 setupGuessRows(numberOfRows);
 document.getElementById("user-guess").focus();
-// setup eventlisteners
-document.getElementById('guess-button').addEventListener('click', mainGameLoop); // left clicks
-document.getElementById('gear-icon').addEventListener('click', gameMenu); // left clicks
+
+// ############################################################################
+// ####################### setup eventlisteners ###############################
+// ############################################################################
+
+document.getElementById('restart-button').addEventListener('click', mainGameLoop);
+document.getElementById('level-easy').addEventListener('click', setLevel("EASY"));
+document.getElementById('level-medium').addEventListener('click', setLevel("MEDIUM")p);
+document.getElementById('level-master').addEventListener('click', setLevel("MASTER"));
+
+document.getElementById('guess-button').addEventListener('click', mainGameLoop); 
+document.getElementById('gear-icon').addEventListener('click', gameMenu); 
 document.getElementById("user-guess").addEventListener("keydown", function (event) {
     if (event.key === "Enter") {
         mainGameLoop();
     }
 });
+
+// ############################################################################
+// ############################################################################
 
 /** takes the word and row input and places each letter on the board
  * then resets focus for a new entry
@@ -66,12 +78,12 @@ function addWordToGrid(userguess, row) {
 
     for (let i = 0; i < 5; i++) {
         let destinationID = `letter-${row}${i}`;
-        
+
         document.getElementById(destinationID).textContent = userguess.charAt(i);
     }
 
     document.getElementById("user-guess").value = "";
-	document.getElementById("user-guess").focus();
+    document.getElementById("user-guess").focus();
 }
 
 /** main game loop. check turn elelemt on page to end game after set number of guesses */
@@ -79,14 +91,14 @@ function mainGameLoop() {
     let turnNumber = parseInt(document.getElementById('turnNumber').textContent);
     console.log('turn number: ' + turnNumber);
 
-    if (turnNumber < numberOfRows ) {
+    if (turnNumber < numberOfRows) {
 
         let userguess = document.getElementById('user-guess').value;
         userguess = userguess.toLowerCase();
         let regex = /^[a-zA-Z]+$/; //allowed letters for answer
 
         if (userguess.length = 5 && regex.test(userguess)) {
-            
+
             addWordToGrid(userguess, turnNumber) // add word to grid
             console.log(userguess);
             /* increment turn at the end */
@@ -109,6 +121,5 @@ function gameMenu() {
     } else {
         document.getElementById("popup-level").style.display = "none";
     }
-    }
-    
-    
+}
+
