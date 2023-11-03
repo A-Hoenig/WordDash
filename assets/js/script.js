@@ -12,60 +12,63 @@ function generateRandomWord() {
  * Number of rows based on #selected-level element
  */
 function setupGuessRows(guesses) {
-    
+
     const guessRows = document.getElementById('guess-rows');
     /* loop to build n rows of HTML based on level */
-    for (let i = 0; i < guesses - 1 ; i++) {
-        let string = "<section class='guess-row' id='guess-" + (i+1) + "'>"; // row 0 already in DOM as master
+    for (let i = 0; i < guesses - 1; i++) {
+        let string = "<section class='guess-row' id='guess-" + (i + 1) + "'>"; // row 0 already in DOM as master
         for (let r = 0; r < 5; r++) {
-          string = string + `
-          <div class="letter-box" id="letter-${i+1}${r}"></div>`
+            string = string + `
+          <div class="letter-box" id="letter-${i + 1}${r}"></div>`
         }
-      string = string + `
+        string = string + `
       </section>
       `
-          guessRows.insertAdjacentHTML("beforeend", string);
-    // console.log(string) //delete this once it works
+        guessRows.insertAdjacentHTML("beforeend", string);
+        // console.log(string) //delete this once it works
     }
 }
 
-// GAME SETUP BEFORE STARTING LOOP
+// GAME SETUP ON RELOAD
 document.getElementById('answer-word').innerHTML = generateRandomWord(); // get random word form array and add it to the hidden solution element
 
 const level = document.getElementById('selected-level');
-    if (level.textContent == "MASTER") {
-        numberOfRows = 5
-    } else if (level.textContent == "NORMAL") {
-        numberOfRows = 6
-    } else {
-        numberOfRows = 7 //easy = default
-    }
+if (level.textContent == "MASTER") {
+    numberOfRows = 5
+} else if (level.textContent == "NORMAL") {
+    numberOfRows = 6
+} else {
+    numberOfRows = 7 //easy = default
+}
 
-    setupGuessRows(numberOfRows);
+setupGuessRows(numberOfRows);
 
-// MAIN GAME LOOP number of turns based on selected level = number of rows
-
-// for (let i=0; i < numberOfRows-1; i++) {
-// console.log(`turn ${i+1}`)
-
-    
-// }
 // setup eventlisteners
-document.getElementById('guess-button').addEventListener('click', addWordToGrid); // left clicks
-let turnNumber = 1
+document.getElementById('guess-button').addEventListener('click', mainGameLoop); // left clicks
 
 
-function addWordToGrid (){
-  let userguess = document.getElementById('user-guess').value;
-  userguess = userguess.toLowerCase();
-  let regex = /^[a-zA-Z]+$/; //allowed letters for answer
-  
-  if (userguess.length = 5 && regex.test(userguess)) {
+function mainGameLoop() {
+    let turnNumber = parseInt(document.getElementById('turnNumber').textContent);
+    console.log('turn number: ' + turnNumber);
 
-    console.log (userguess);
+    if (turnNumber < numberOfRows) {
 
-  } else {
-    alert('please input 5 letters!');
-  }
+        let userguess = document.getElementById('user-guess').value;
+        userguess = userguess.toLowerCase();
+        let regex = /^[a-zA-Z]+$/; //allowed letters for answer
+
+        if (userguess.length = 5 && regex.test(userguess)) {
+            document.getElementById('turnNumber').textContent = turnNumber + 1;
+            console.log(userguess);
+
+        } else {
+
+            alert('please input 5 letters!'); // not a valid input
+
+        }
+    } else {
+        // GAME OVER
+        alert('sorry, game over')
+    }
 }
 
