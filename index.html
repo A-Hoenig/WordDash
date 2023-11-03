@@ -39,7 +39,13 @@
             <p>guessed letters</p>
             <p ID="used-letters">a, g, h, j</p>
         </div>
+
+        <input id="user-guess" type="text" placeholder="type a 5 letter word" maxlength="5">
+
         <input type="button" value="GUESS!" id="guess-button">
+
+
+        <!-- ##################### HIDDEN SECTION - ENABLED VIA JS ########################-->
         <div ID="popup-level" class="popup-message">
             <p>SELECT YOUR LEVEL</p>
             <input type="button" id="level-easy" value="EASY" class="level-button">
@@ -48,9 +54,11 @@
             <br>
             <input type="button" id="level-master" value="MASTER" class="level-button">
         </div>
+
         <div ID="popup-won" class="popup-message">
             <p id="winner">YOU WON!!</p>
         </div>
+
         <div ID="popup-lost" class="popup-message">
             <p id="loser">GAME OVER</p>
             <p>the correct word was:</p>
@@ -59,6 +67,7 @@
         </div>
 
     </main>
+
     <script src="https://kit.fontawesome.com/47b432aa42.js" crossorigin="anonymous"></script>
     <script src="assets/js/script.js"></script>
 </body>

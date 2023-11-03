@@ -11,9 +11,9 @@
 /* position header elements dynamically */
 header {
     display: flex;
-   justify-content: space-between;
-   padding-left: 30px;
-   padding-right: 30px;
+    justify-content: space-between;
+    padding-left: 30px;
+    padding-right: 30px;
 }
 
 /* style Game Name */
@@ -39,6 +39,7 @@ h1 {
 #gear-icon:hover {
     color: brown;
 }
+
 /* style of game area*/
 body {
     font-family: 'roboto', sans-serif;
@@ -48,10 +49,6 @@ body {
     width: 100vw;
     padding: 5px;
     min-width: 400px;
-}
-
-main {
-    /* position: relative; */
 }
 
 #game-area {
@@ -96,7 +93,7 @@ main {
 
 /* class to highlight which box contains a letter in wrong position*/
 .correct-letter {
-    background:rgb(255, 200, 0.5);
+    background: rgb(255, 200, 0.5);
 }
 
 /* style list of used letters */
@@ -115,10 +112,31 @@ main {
     text-align: center;
 }
 
+#user-guess {
+    margin: 10px auto;
+    display: block;
+    background: moccasin;
+    border: 3px solid black;
+    border-radius: 5px;
+    padding: 3px;
+    width: 360px;
+    height: 50px;
+    font-weight: bold;
+    font-size: 1.7em;
+    text-align: center;
+    box-shadow: inset gray 0px 0px 60px -12px;
+    text-transform: uppercase;
+}
+
+#user-guess::placeholder {
+    color: rgb(100, 100, 100);
+    text-transform:lowercase;
+}
+
 /* style guess button */
 #guess-button {
-    margin:10px auto;
-    display:block;
+    margin: 10px auto;
+    display: block;
     background: burlywood;
     border: 3px solid brown;
     border-radius: 5px;
@@ -131,6 +149,8 @@ main {
 
 #guess-button:hover {
     background: green;
+    color: white;
+    border-color: black;
 }
 
 /* position popup boxes in middle fo screen */

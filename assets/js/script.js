@@ -7,3 +7,4 @@ function generateRandomWord () {
 
 let answer = generateRandomWord();
 console.log(answer);
+
