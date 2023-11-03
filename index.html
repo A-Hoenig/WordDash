@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <link rel="stylesheet" href="assets/css/style.css">
+    <title>Document</title>
+</head>
+
+<body id="game-area">
+    <header>
+        <h1> WordDash </h1>
+        <span>
+            <span>
+                LEVEL:
+            </span>
+            <span id="selected-level">
+                EASY
+            </span>
+        </span>
+        <span id="gear-icon">
+            <i class="fa-solid fa-gear"></i>
+        </span>
+
+    </header>
+    <main id="word-area">
+        <section class="guess-row" ID="guess-1">
+            <div class="letter-box" id="letter-11">a</div>
+            <div class="letter-box" id="letter-12">b</div>
+            <div class="letter-box" id="letter-13">c</div>
+            <div class="letter-box" id="letter-14">d</div>
+            <div class="letter-box" id="letter-15">e</div>
+        </section>
+
+        <div ID="guessed-letters">
+            <p>guessed letters</p>
+            <p ID="used-letters">a, g, h, j</p>
+        </div>
+        <input type="button" value="GUESS!" id="guess-button">
+        <div ID="popup-level" class="popup-message">
+            <p>SELECT YOUR LEVEL</p>
+            <input type="button" id="level-easy" value="EASY" class="level-button">
+            <br>
+            <input type="button" id="level-medium" value="MEDIUM" class="level-button">
+            <br>
+            <input type="button" id="level-master" value="MASTER" class="level-button">
+        </div>
+        <div ID="popup-won" class="popup-message">
+            <p id="winner">YOU WON!!</p>
+        </div>
+        <div ID="popup-lost" class="popup-message">
+            <p id="loser">GAME OVER</p>
+            <p>the correct word was:</p>
+            <br>
+            <p id="answer-word">ANSWER</p>
+        </div>
+
+    </main>
+    <script src="https://kit.fontawesome.com/47b432aa42.js" crossorigin="anonymous"></script>
+    <script src="assets/js/script.js"></script>
+</body>
+
+</html>

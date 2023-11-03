@@ -1,0 +1,196 @@
+/* import fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;900&display=swap');
+
+/* std defaults*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* position header elements dynamically */
+header {
+    display: flex;
+   justify-content: space-between;
+   padding-left: 30px;
+   padding-right: 30px;
+}
+
+/* style Game Name */
+h1 {
+    text-align: center;
+    font-family: 'roboto', sans-serif;
+    font-size: 2em;
+}
+
+/* header title showing current difficulty */
+#selected-level {
+    font-size: 1.5em;
+    align-self: center;
+    font-weight: 900;
+}
+
+/* game control gear icon to show level selector*/
+#gear-icon {
+    font-size: 1.5em;
+    align-self: center;
+}
+
+#gear-icon:hover {
+    color: brown;
+}
+/* style of game area*/
+body {
+    font-family: 'roboto', sans-serif;
+    background: moccasin;
+    border: 8px solid brown;
+    border-radius: 10px;
+    width: 100vw;
+    padding: 5px;
+    min-width: 400px;
+}
+
+main {
+    /* position: relative; */
+}
+
+#game-area {
+    height: 100vh;
+    display: grid;
+    grid-template-rows: auto 1fr;
+    grid-template-areas:
+        'header'
+        'main';
+}
+
+/* positioning of one row of letters */
+.guess-row {
+    display: flex;
+    justify-content: center;
+}
+
+/* standard style of a letter box */
+.letter-box {
+    background: burlywood;
+    border: 3px solid brown;
+    width: 60px;
+    height: 60px;
+    text-align: center;
+    margin: 5px;
+    text-transform: uppercase;
+    font-weight: 900;
+    font-size: 3em;
+    border-radius: 10px;
+}
+
+/* class to highlight which box will input next letter*/
+.highlight {
+    border: 3px solid black;
+    background: white;
+}
+
+/* class to highlight which box contains a letter in correct position*/
+.correct-posit {
+    background: rgba(0, 200, 0, 0.5);
+}
+
+/* class to highlight which box contains a letter in wrong position*/
+.correct-letter {
+    background:rgb(255, 200, 0.5);
+}
+
+/* style list of used letters */
+#guessed-letters {
+    border: 3px solid black;
+    border-radius: 5px;
+    background: white;
+    width: 75%;
+    margin: auto;
+    margin-top: 10px;
+    text-transform: uppercase;
+    font-weight: 900;
+    padding: 3px;
+    min-width: 300px;
+    max-width: 400px;
+    text-align: center;
+}
+
+/* style guess button */
+#guess-button {
+    margin:10px auto;
+    display:block;
+    background: burlywood;
+    border: 3px solid brown;
+    border-radius: 5px;
+    padding: 3px;
+    width: 200px;
+    height: 50px;
+    font-weight: bold;
+    font-size: 1.5em;
+}
+
+#guess-button:hover {
+    background: green;
+}
+
+/* position popup boxes in middle fo screen */
+.popup-message {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    width: 75%;
+    height: 500px;
+    border: 4px solid brown;
+    border-radius: 10px;
+    text-align: center;
+    padding-top: 200px;
+    background: white;
+    font-weight: 900;
+    font-size: 1.5em;
+    text-transform: uppercase;
+}
+
+/* style level buttons on popup*/
+.level-button {
+    height: 50px;
+    text-align: center;
+    font-weight: 900;
+    font-size: 1.1em;
+    margin-bottom: 20px;
+    width: 200px;
+    border: 4px solid black;
+    border-radius: 10px;
+}
+
+.level-button:hover {
+    background: green;
+    cursor: pointer;
+}
+
+
+/* hide popups*/
+/* style of level select popup - default hidden */
+#popup-level {
+    display: none;
+}
+
+/* style of winning popup - default hidden */
+#popup-won {
+    display: none;
+    font-size: 3em;
+    background: lightgreen;
+}
+
+/* style of losing popup - default hidden */
+#popup-lost {
+    display: none;
+    background: orange;
+}
+
+/* increase size of solution word */
+#answer-word {
+    font-size: 2em;
+}
