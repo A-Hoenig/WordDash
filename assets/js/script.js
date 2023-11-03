@@ -8,6 +8,9 @@ function generateRandomWord() {
 let answer = generateRandomWord();
 console.log(answer);
 
+/** generates a dynamic number of rows with unique Id for each letter box. (format: id='letter-xn'
+ * where x is the row and n is the nth letter in that row)
+ */
 function setupGuessRows() {
     const level = document.getElementById('selected-level');
     const guessRows = document.getElementById('guess-rows');
@@ -22,10 +25,10 @@ function setupGuessRows() {
 
     /* for loop to build guess row HTML based on level */
     for (let i = 0; i < guesses ; i++) {
-        let string = "<section class='guess-row' id='guess-" + (i+1) + "'>";
+        let string = "<section class='guess-row' id='guess-" + (i) + "'>";
         for (let r = 0; r < 5; r++) {
           string = string + `
-          <div class="letter-box" id="letter-${i+1}${r+1}"></div>`
+          <div class="letter-box" id="letter-${i}${r}"></div>`
         }
       string = string + `
       </section>
