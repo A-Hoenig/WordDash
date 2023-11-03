@@ -27,23 +27,24 @@ function setupGuessRows(guesses) {
     }
 }
 
-// get random word form array and add it to the hidden solution element
-document.getElementById('answer-word').innerHTML = generateRandomWord();
+// GAME SETUP BEFORE STARTING LOOP
+document.getElementById('answer-word').innerHTML = generateRandomWord(); // get random word form array and add it to the hidden solution element
 
-
-
-/** MAIN GAME LOOP 
- * number of turns based on selected level = number of rows
-*/
 const level = document.getElementById('selected-level');
-    
-
     if (level.textContent == "MASTER") {
-        setupGuessRows(5);
+        numberOfRows = 5
     } else if (level.textContent == "NORMAL") {
-        setupGuessRows(6);
+        numberOfRows = 6
     } else {
-        setupGuessRows(7);
+        numberOfRows = 7 //easy = default
     }
 
+    setupGuessRows(numberOfRows);
 
+// MAIN GAME LOOP number of turns based on selected level = number of rows
+
+for (let i=0; i < numberOfRows-1; i++) {
+
+
+    
+}
