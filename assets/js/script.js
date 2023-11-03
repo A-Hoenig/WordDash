@@ -42,10 +42,14 @@ if (level.textContent == "MASTER") {
 }
 
 setupGuessRows(numberOfRows);
-
+document.getElementById("user-guess").focus();
 // setup eventlisteners
 document.getElementById('guess-button').addEventListener('click', mainGameLoop); // left clicks
-
+document.getElementById("user-guess").addEventListener("keydown", function (event) {
+    if (event.key === "Enter") {
+        mainGameLoop();
+    }
+});
 
 function mainGameLoop() {
     let turnNumber = parseInt(document.getElementById('turnNumber').textContent);
@@ -86,4 +90,7 @@ function addWordToGrid(userguess, row) {
         console.log(userguess.charAt(i));
         document.getElementById(destinationID).textContent = userguess.charAt(i);
     }
+
+    document.getElementById("user-guess").value = "";
+	document.getElementById("user-guess").focus();
 }
