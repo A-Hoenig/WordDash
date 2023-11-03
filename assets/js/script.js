@@ -29,6 +29,8 @@ function setupGuessRows(guesses) {
     }
 }
 
+
+
 // GAME SETUP ON RELOAD
 document.getElementById('answer-word').innerHTML = generateRandomWord(); // get random word form array and add it to the hidden solution element
 
@@ -45,6 +47,7 @@ setupGuessRows(numberOfRows);
 document.getElementById("user-guess").focus();
 // setup eventlisteners
 document.getElementById('guess-button').addEventListener('click', mainGameLoop); // left clicks
+document.getElementById('gear-icon').addEventListener('click', gameMenu); // left clicks
 document.getElementById("user-guess").addEventListener("keydown", function (event) {
     if (event.key === "Enter") {
         mainGameLoop();
@@ -63,8 +66,7 @@ function addWordToGrid(userguess, row) {
 
     for (let i = 0; i < 5; i++) {
         let destinationID = `letter-${row}${i}`;
-        console.log(destinationID);
-        console.log(userguess.charAt(i));
+        
         document.getElementById(destinationID).textContent = userguess.charAt(i);
     }
 
@@ -77,17 +79,18 @@ function mainGameLoop() {
     let turnNumber = parseInt(document.getElementById('turnNumber').textContent);
     console.log('turn number: ' + turnNumber);
 
-    if (turnNumber < numberOfRows - 1) {
+    if (turnNumber < numberOfRows ) {
 
         let userguess = document.getElementById('user-guess').value;
         userguess = userguess.toLowerCase();
         let regex = /^[a-zA-Z]+$/; //allowed letters for answer
 
         if (userguess.length = 5 && regex.test(userguess)) {
-            document.getElementById('turnNumber').textContent = turnNumber + 1; // increment turn number
+            
             addWordToGrid(userguess, turnNumber) // add word to grid
             console.log(userguess);
-
+            /* increment turn at the end */
+            document.getElementById('turnNumber').textContent = turnNumber + 1; // increment turn number
         } else {
 
             alert('please input 5 letters!'); // not a valid input
@@ -99,3 +102,13 @@ function mainGameLoop() {
     }
 }
 
+/** bring up game menu to change difficulty or resart */
+function gameMenu() {
+    if (document.getElementById("popup-level").style.display === "none") {
+        document.getElementById("popup-level").style.display = "block";
+    } else {
+        document.getElementById("popup-level").style.display = "none";
+    }
+    }
+    
+    
