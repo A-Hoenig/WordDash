@@ -5,29 +5,16 @@ function generateRandomWord() {
     return words[Math.floor(Math.random() * words.length)]
 }
 
-// let answer = generateRandomWord();
-document.getElementById('answer-word').innerHTML = generateRandomWord();
-
-
 /** generates a dynamic number of rows with unique Id for each letter box. (Format: id='letter-xn'
  * where x is the row and n is the nth letter in that row).
  * Number of rows based on #selected-level element
  */
-function setupGuessRows() {
-    const level = document.getElementById('selected-level');
+function setupGuessRows(guesses) {
+    
     const guessRows = document.getElementById('guess-rows');
-
-    if (level.textContent == "MASTER") {
-        guesses = 5
-    } else if (level.textContent == "NORMAL") {
-        guesses = 6
-    } else {
-        guesses = 7
-    }
-
-    /* for loop to build guess row HTML based on level */
+    /* loop to build n rows of HTML based on level */
     for (let i = 0; i < guesses - 1 ; i++) {
-        let string = "<section class='guess-row' id='guess-" + (i+1) + "'>";
+        let string = "<section class='guess-row' id='guess-" + (i+1) + "'>"; // row 0 already in DOM as master
         for (let r = 0; r < 5; r++) {
           string = string + `
           <div class="letter-box" id="letter-${i+1}${r}"></div>`
@@ -38,8 +25,25 @@ function setupGuessRows() {
           guessRows.insertAdjacentHTML("beforeend", string);
     // console.log(string) //delete this once it works
     }
-
-  
 }
 
-setupGuessRows();
+// get random word form array and add it to the hidden solution element
+document.getElementById('answer-word').innerHTML = generateRandomWord();
+
+
+
+/** MAIN GAME LOOP 
+ * number of turns based on selected level = number of rows
+*/
+const level = document.getElementById('selected-level');
+    
+
+    if (level.textContent == "MASTER") {
+        setupGuessRows(5);
+    } else if (level.textContent == "NORMAL") {
+        setupGuessRows(6);
+    } else {
+        setupGuessRows(7);
+    }
+
+
