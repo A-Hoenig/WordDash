@@ -9,25 +9,27 @@ let answer = generateRandomWord();
 console.log(answer);
 
 function setupGuessRows() {
-    let level = document.getElementById('selected-level').textContent;
-    console.log(level);
-    if (level == "MASTER") {
+    const level = document.getElementById('selected-level');
+    const guessRows = document.getElementById('guess-rows');
+
+    if (level.textContent == "MASTER") {
         guesses = 5
-    } else if (level == "NORMAL") {
+    } else if (level.textContent == "NORMAL") {
         guesses = 6
     } else {
         guesses = 7
     }
 
-console.log(guesses);
-
     /* for loop to clone guess row based on level */
-    for (let i = 0; i < guesses; i++) {
-        console.log(i);
-
+    for (let i = 0; i < guesses -1 ; i++) {
+        
+        const row = document.getElementById("guess-1")
+        const rowclone = row.cloneNode(true);
+        const guessedLetters = document.getElementById("guessed-letters");
+        guessRows.insertBefore(rowclone, null);
     }
 
-    return i
+  
 }
 
-console.log(setupGuessRows());
+setupGuessRows();
