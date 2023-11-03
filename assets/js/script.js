@@ -20,13 +20,18 @@ function setupGuessRows() {
         guesses = 7
     }
 
-    /* for loop to clone guess row based on level */
-    for (let i = 0; i < guesses -1 ; i++) {
-        
-        const row = document.getElementById("guess-1")
-        const rowclone = row.cloneNode(true);
-        const guessedLetters = document.getElementById("guessed-letters");
-        guessRows.insertBefore(rowclone, null);
+    /* for loop to build guess row HTML based on level */
+    for (let i = 0; i < guesses ; i++) {
+        let string = "<section class='guess-row' id='guess-" + (i+1) + "'>";
+        for (let r = 0; r < 5; r++) {
+          string = string + `
+          <div class="letter-box" id="letter-${i+1}${r+1}"></div>`
+        }
+      string = string + `
+      </section>
+      `
+          
+    console.log(string)
     }
 
   
