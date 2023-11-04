@@ -160,7 +160,7 @@ function colorLetters(userguess, answer, row) {
     const exactMatches = [];
     const wrongPosition = [];
   
-    /* build 2 arrays with correct position IDs and wrong position IDs */
+    /* build 2 arrays with exact match IDs and wrong position IDs */
     for (let i = 0; i < 5; i++) {
       if (userguess[i] === answer[i]) {
         exactMatches.push(`letter-${row}${i}`);
@@ -170,8 +170,8 @@ function colorLetters(userguess, answer, row) {
     }
     
         /* now add the repsecitve class to each found letter */
-
-
+        exactMatches.forEach((element) => document.getElementById(element).classList.add("correct-posit"));
+        wrongPosition.forEach((element) => document.getElementById(element).classList.add("correct-letter"));
   }
   
   
