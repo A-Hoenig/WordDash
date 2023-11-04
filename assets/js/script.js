@@ -175,4 +175,15 @@ function colorLetters(userguess, answer, row) {
   }
   
   
+/* current bugs */
+// word verification has stopped working
+// wrong position letter should not be included if already in correct position array
+// gear icon needs a double click to show menu
+// end of game needs to not allow input anymore
 
+
+/* To DO LIST*/
+// guessed letters output
+// show win or lose popup
+// fix restart function without causing constant webpage reload
+// only allow level change if game is ended
