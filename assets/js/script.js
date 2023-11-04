@@ -49,9 +49,9 @@ document.getElementById("user-guess").addEventListener("keydown", function (even
 // ###################################################################################
 
 
-// GAME SETUP ON RELOAD
+// GAME SETUP ON PAGE LOAD 
 document.getElementById('answer-word').innerHTML = generateRandomWord(); // get random word form array and add it to the hidden solution element
-console.log (document.getElementById('answer-word').innerHTML);
+console.log (document.getElementById('answer-word').innerHTML); // DELETE ME ONCE ERROR CHECKING IS DONE !!!!
 
 const level = document.getElementById('selected-level');
 if (level.textContent == "MASTER") {
@@ -63,7 +63,7 @@ if (level.textContent == "MASTER") {
 }
 
 setupGuessRows(numberOfRows);
-document.getElementById("user-guess").focus();
+document.getElementById("user-guess").focus(); // add cursor to guess window so user can immediately type
 
 /** takes the word and row input and places each letter on the board
  * then resets focus for a new entry
@@ -77,7 +77,6 @@ function addWordToGrid(userguess, row) {
 
     for (let i = 0; i < 5; i++) {
         let destinationID = `letter-${row}${i}`;
-
         document.getElementById(destinationID).textContent = userguess.charAt(i);
     }
 
@@ -85,19 +84,23 @@ function addWordToGrid(userguess, row) {
     document.getElementById("user-guess").focus();
 }
 }
+//#######################################################################################
+/** main game loop. check turn elememt on page to end game after set number of guesses */
+//#######################################################################################
 
-/** main game loop. check turn elelemt on page to end game after set number of guesses */
 function mainGameLoop() {
+    // get current turn number from hidden #turn-number div
     let turnNumber = parseInt(document.getElementById('turnNumber').textContent);
-    // get answer to compare to guess
+    // get word answer to compare to guess
     answer = document.getElementById('answer-word').innerHTML; 
 
-    console.log('turn number: ' + turnNumber);
+    console.log('turn number: ' + turnNumber); // can be deleted after error checking
 
     if (turnNumber < numberOfRows) {
 
+        // get users guess from input field
         let userguess = document.getElementById('user-guess').value;
-        userguess = userguess.toLowerCase();
+        userguess = userguess.toLowerCase(); //convert all to lowercase incase caps lock is on
         let regex = /^[a-zA-Z]+$/; //allowed letters for answer
 
         if (userguess.length = 5 && regex.test(userguess)) {
@@ -107,12 +110,11 @@ function mainGameLoop() {
             colorLetters(userguess, answer, turnNumber);
             //check if game won
 
-            console.log(userguess);
             /* increment turn at the end */
             document.getElementById('turnNumber').textContent = turnNumber + 1; // increment turn number
         } else {
 
-            alert('please input 5 letters!'); // not a valid input
+            alert('please input a valid 5 letter word!'); // not a valid input
 
         }
     } else {
@@ -120,6 +122,12 @@ function mainGameLoop() {
         alert("sorry, you've run out of guesses")
     }
 }
+
+//#######################################################################################
+//############################## main game loop end  ####################################
+//#######################################################################################
+
+
 
 /** bring up game menu to change difficulty or resart */
 function gameMenu() {
@@ -187,3 +195,4 @@ function colorLetters(userguess, answer, row) {
 // show win or lose popup
 // fix restart function without causing constant webpage reload
 // only allow level change if game is ended
+// change mechanics as its too easy without having to geuss actual words.
