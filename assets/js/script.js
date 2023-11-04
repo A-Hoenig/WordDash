@@ -69,9 +69,7 @@ document.getElementById("user-guess").focus();
  * then resets focus for a new entry
  */
 function addWordToGrid(userguess, row) {
-    // get answer to compare to guess
-    answer = document.getElementById('answer-word').innerHTML;
-
+    
     //loop though child letter elements and add each letterID
     if (userguess === null || row === null) {
         //do nothing
@@ -91,6 +89,9 @@ function addWordToGrid(userguess, row) {
 /** main game loop. check turn elelemt on page to end game after set number of guesses */
 function mainGameLoop() {
     let turnNumber = parseInt(document.getElementById('turnNumber').textContent);
+    // get answer to compare to guess
+    answer = document.getElementById('answer-word').innerHTML; 
+
     console.log('turn number: ' + turnNumber);
 
     if (turnNumber < numberOfRows) {
@@ -103,7 +104,7 @@ function mainGameLoop() {
             // check and add word to grid
             addWordToGrid(userguess, turnNumber);
             // verify colors for correct letters
-            colorLetters(userguess, turnNumber);
+            colorLetters(userguess, answer, turnNumber);
             //check if game won
 
             console.log(userguess);
@@ -154,18 +155,24 @@ function restart() {
     mainGameLoop();
 }
 
-function colorLetters (userguess, row) {
-    answer = document.getElementById('answer-word').innerHTML;
-     //loop though child letter elements and add each letterID
-     if (row === null) {
-        //do nothing
-    } else { 
-
+function colorLetters(userguess, answer, row) {
+  
+    const exactMatches = [];
+    const wrongPosition = [];
+  
+    /* build 2 arrays with correct position IDs and wrong position IDs */
     for (let i = 0; i < 5; i++) {
-        let destinationID = `letter-${row}${i}`;
-            if ()
-        console.log(destinationID);
+      if (userguess[i] === answer[i]) {
+        exactMatches.push(`letter-${row}${i}`);
+      } else if (answer.includes(userguess[i])) {
+        wrongPosition.push(`letter-${row}${i}`);
+      }
     }
+    
+        /* now add the repsecitve class to each found letter */
 
-}
-}
+
+  }
+  
+  
+
