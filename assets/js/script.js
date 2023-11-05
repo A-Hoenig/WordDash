@@ -166,41 +166,31 @@ function restart() {
 function colorLetters(userguess, answer, row) {
 
     const exactMatches = [];
-    const wrongPosition = [];
-    const storeMatches = [];
+    const nonExactMatches = [];
 
     //convert userguess and answer to arrays of 5 letters
     userguessArray = userguess.split('');
     answerArray = answer.split('');
 
-    // build array with exact match IDs
+    // find exact matches first
     for (let i = 0; i < 5; i++) {
         if (userguessArray[i] === answerArray[i]) {
-            exactMatches.push(`letter-${row}${i}`); // generate element ID for the exact match
-            storeMatches.push(i); // remember which letters to remove from array
+            exactMatches.push(`letter-${row}${i}`);
+            userguessArray[i] = null; //mark as matched in both arrays
+            answerArray[i] = null;
         }
     }
 
-    // now add the correct-posit class to each matched letter 
-    exactMatches.forEach((element) => document.getElementById(element).classList.add("correct-posit"));
-    
-    // now remove any exact matches from user guess
-    for (let x = storeMatches.length - 1; x >=0; x--) {
-        userguessArray.splice(storeMatches[x],1);
+    // now match non exact matches that arent null yet
+    for (let x = 0; x < 5; x++) {
+        if (userguessArray[x] !== null && answerArray.includes(userguessArray[x])) {
+            nonExactMatches.push(`letter-${row}${x}`);
+            answerArray[answerArray.indexOf(userguessArray[x])] = null; // marks as matched
+        }
     }
-    if (userguessArray.length ===  0 ) {alert ("you won!")} // all 5 letters matched = winner
-    console.log ("remaining letters: " + userguessArray);
-
-    //now check remaining userguessed letters for any non-exact matches
-    
-       for (let y=0; y < userguessArray.length; y++) {
-            if (answer.includes(userguessArray[y])) {
-                wrongPosition.push(`letter-${row}${answer.indexOf(userguessArray[y])}`); // loop though remaining letters and store where they were found if found
-            }
-       } 
-    console.log("color orange: " + wrongPosition);
-    wrongPosition.forEach((element) => document.getElementById(element).classList.add("correct-letter"));
-
+    //now color the respective letters based on both arrays
+    nonExactMatches.forEach((element) => document.getElementById(element).classList.add("correct-letter"));
+    exactMatches.forEach((element) => document.getElementById(element).classList.add("correct-posit"));
 
 }
 
