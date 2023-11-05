@@ -173,7 +173,7 @@ function colorLetters(userguess, answer, row) {
     userguessArray = userguess.split('');
     answerArray = answer.split('');
 
-    // build array with exact match IDs and remove any matches from the userguess 
+    // build array with exact match IDs
     for (let i = 0; i < 5; i++) {
         if (userguessArray[i] === answerArray[i]) {
             exactMatches.push(`letter-${row}${i}`); // generate element ID for the exact match
@@ -188,26 +188,20 @@ function colorLetters(userguess, answer, row) {
     for (let x = storeMatches.length - 1; x >=0; x--) {
         userguessArray.splice(storeMatches[x],1);
     }
-    if (userguessArray.length ===  0 ) {alert ("you won!")} // all 5 letters. matched = winner
-    console.log (userguessArray);
+    if (userguessArray.length ===  0 ) {alert ("you won!")} // all 5 letters matched = winner
+    console.log ("remaining letters: " + userguessArray);
 
     //now check remaining userguessed letters for any non-exact matches
-    for (let i = 0; i< userguessArray.length; i++) {
-        if (answerArray.includes(userguessArray)) {
-            wrongPosition.push(`letter-${row}${i}`);
-        }
-    }
-
     
+       for (let y=0; y < userguessArray.length; y++) {
+            if (answer.includes(userguessArray[y])) {
+                wrongPosition.push(`letter-${row}${answer.indexOf(userguessArray[y])}`); // loop though remaining letters and store where they were found if found
+            }
+       } 
+    console.log("color orange: " + wrongPosition);
     wrongPosition.forEach((element) => document.getElementById(element).classList.add("correct-letter"));
 
-    //   } else if (answer.includes(userguess[i])) {
-    //     wrongPosition.push(`letter-${row}${i}`);
-    //   }
-    // }
 
-
-   
 }
 
 
