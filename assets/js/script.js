@@ -173,7 +173,7 @@ function colorLetters(userguess, answer, row) {
     userguessArray = userguess.split('');
     answerArray = answer.split('');
 
-    /* build array with exact match IDs and remove any matches from the userguess */
+    // build array with exact match IDs and remove any matches from the userguess 
     for (let i = 0; i < 5; i++) {
         if (userguessArray[i] === answerArray[i]) {
             exactMatches.push(`letter-${row}${i}`); // generate element ID for the exact match
@@ -181,24 +181,25 @@ function colorLetters(userguess, answer, row) {
         }
     }
 
-    console.log(answerArray);
-    console.log(exactMatches);
-    console.log(storeMatches);
-    
-    /* now add the correct-posit class to each matched letter */
+    // now add the correct-posit class to each matched letter 
     exactMatches.forEach((element) => document.getElementById(element).classList.add("correct-posit"));
     
-    //now remove any exact matches from user guess
+    // now remove any exact matches from user guess
     for (let x = storeMatches.length - 1; x >=0; x--) {
         userguessArray.splice(storeMatches[x],1);
     }
-
+    if (userguessArray.length ===  0 ) {alert ("you won!")} // all 5 letters. matched = winner
     console.log (userguessArray);
 
+    //now check remaining userguessed letters for any non-exact matches
+    for (let i = 0; i< userguessArray.length; i++) {
+        if (answerArray.includes(userguessArray)) {
+            wrongPosition.push(`letter-${row}${i}`);
+        }
+    }
 
-
-
-
+    
+    wrongPosition.forEach((element) => document.getElementById(element).classList.add("correct-letter"));
 
     //   } else if (answer.includes(userguess[i])) {
     //     wrongPosition.push(`letter-${row}${i}`);
@@ -206,7 +207,7 @@ function colorLetters(userguess, answer, row) {
     // }
 
 
-    wrongPosition.forEach((element) => document.getElementById(element).classList.add("correct-letter"));
+   
 }
 
 
