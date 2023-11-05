@@ -51,7 +51,7 @@ document.getElementById("user-guess").addEventListener("keydown", function (even
 
 // GAME SETUP ON PAGE LOAD 
 document.getElementById('answer-word').innerHTML = generateRandomWord(); // get random word form array and add it to the hidden solution element
-console.log (document.getElementById('answer-word').innerHTML); // DELETE ME ONCE ERROR CHECKING IS DONE !!!!
+console.log(document.getElementById('answer-word').innerHTML); // DELETE ME ONCE ERROR CHECKING IS DONE !!!!
 
 const level = document.getElementById('selected-level');
 if (level.textContent == "MASTER") {
@@ -69,20 +69,20 @@ document.getElementById("user-guess").focus(); // add cursor to guess window so 
  * then resets focus for a new entry
  */
 function addWordToGrid(userguess, row) {
-    
+
     //loop though child letter elements and add each letterID
     if (userguess === null || row === null) {
         //do nothing
-    } else { 
+    } else {
 
-    for (let i = 0; i < 5; i++) {
-        let destinationID = `letter-${row}${i}`;
-        document.getElementById(destinationID).textContent = userguess.charAt(i);
+        for (let i = 0; i < 5; i++) {
+            let destinationID = `letter-${row}${i}`;
+            document.getElementById(destinationID).textContent = userguess.charAt(i);
+        }
+
+        document.getElementById("user-guess").value = "";
+        document.getElementById("user-guess").focus();
     }
-
-    document.getElementById("user-guess").value = "";
-    document.getElementById("user-guess").focus();
-}
 }
 //#######################################################################################
 /** main game loop. check turn elememt on page to end game after set number of guesses */
@@ -92,7 +92,7 @@ function mainGameLoop() {
     // get current turn number from hidden #turn-number div
     let turnNumber = parseInt(document.getElementById('turnNumber').textContent);
     // get word answer to compare to guess
-    answer = document.getElementById('answer-word').innerHTML; 
+    answer = document.getElementById('answer-word').innerHTML;
 
     console.log('turn number: ' + turnNumber); // can be deleted after error checking
 
@@ -164,25 +164,53 @@ function restart() {
 }
 
 function colorLetters(userguess, answer, row) {
-  
+
     const exactMatches = [];
     const wrongPosition = [];
-  
-    /* build 2 arrays with exact match IDs and wrong position IDs */
+    const storeMatches = [];
+
+    //convert userguess and answer to arrays of 5 letters
+    userguessArray = userguess.split('');
+    answerArray = answer.split('');
+
+    /* build array with exact match IDs and remove any matches from the userguess */
     for (let i = 0; i < 5; i++) {
-      if (userguess[i] === answer[i]) {
-        exactMatches.push(`letter-${row}${i}`);
-      } else if (answer.includes(userguess[i])) {
-        wrongPosition.push(`letter-${row}${i}`);
-      }
+        if (userguessArray[i] === answerArray[i]) {
+            exactMatches.push(`letter-${row}${i}`); // generate element ID for the exact match
+            storeMatches.push(i); // remember which letters to remove from array
+        }
     }
+
+    console.log(answerArray);
+    console.log(exactMatches);
+    console.log(storeMatches);
     
-        /* now add the repsecitve class to each found letter */
-        exactMatches.forEach((element) => document.getElementById(element).classList.add("correct-posit"));
-        wrongPosition.forEach((element) => document.getElementById(element).classList.add("correct-letter"));
-  }
-  
-  
+    /* now add the correct-posit class to each matched letter */
+    exactMatches.forEach((element) => document.getElementById(element).classList.add("correct-posit"));
+    
+    //now remove any exact matches from user guess
+    for (let x = storeMatches.length - 1; x >=0; x--) {
+        userguessArray.splice(storeMatches[x],1);
+    }
+
+    console.log (userguessArray);
+
+
+
+
+
+
+    //   } else if (answer.includes(userguess[i])) {
+    //     wrongPosition.push(`letter-${row}${i}`);
+    //   }
+    // }
+
+
+    wrongPosition.forEach((element) => document.getElementById(element).classList.add("correct-letter"));
+}
+
+
+
 /* current bugs */
 // word verification has stopped working
 // wrong position letter should not be included if already in correct position array
@@ -190,9 +218,8 @@ function colorLetters(userguess, answer, row) {
 // end of game needs to not allow input anymore
 
 
-/* To DO LIST*/
+/* To DO LIST 
 // guessed letters output
 // show win or lose popup
 // fix restart function without causing constant webpage reload
-// only allow level change if game is ended
-// change mechanics as its too easy without having to geuss actual words.
+// only allow level change if game is ended */
