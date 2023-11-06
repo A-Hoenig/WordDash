@@ -110,6 +110,8 @@ function mainGameLoop() {
             colorLetters(userguess, answer, turnNumber);
             //check if game won
 
+            // update used letters
+            updateUsedLetters(userguess);
             /* increment turn at the end */
             document.getElementById('turnNumber').textContent = turnNumber + 1; // increment turn number
         } else {
@@ -181,7 +183,7 @@ function colorLetters(userguess, answer, row) {
         }
     }
 
-    // now match non exact matches that arent null yet
+    // now match non exact matches that aren't null yet
     for (let x = 0; x < 5; x++) {
         if (userguessArray[x] !== null && answerArray.includes(userguessArray[x])) {
             nonExactMatches.push(`letter-${row}${x}`);
@@ -189,16 +191,25 @@ function colorLetters(userguess, answer, row) {
         }
     }
     //now color the respective letters based on both arrays
-    nonExactMatches.forEach((element) => document.getElementById(element).classList.add("correct-letter"));
     exactMatches.forEach((element) => document.getElementById(element).classList.add("correct-posit"));
+    nonExactMatches.forEach((element) => document.getElementById(element).classList.add("correct-letter"));
+}
 
+function updateUsedLetters(userguess) {
+    // get current letters in #used-letters <p>
+    let currentLetters = document.getElementById("used-letters").textContent
+    //create array of alreay used letters
+    const usedLettersArray = [];
+    for (let i=0; i < currentLetters.length; i++) {
+        if (currentLetters[i] !== " ") { usedLettersArray.push(currentLetters[i]) };
+    }
+    console.log (usedLettersArray);
 }
 
 
 
 /* current bugs */
 // word verification has stopped working
-// wrong position letter should not be included if already in correct position array
 // gear icon needs a double click to show menu
 // end of game needs to not allow input anymore
 
