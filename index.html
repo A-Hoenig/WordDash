@@ -4,47 +4,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <!--FAVICON -->
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
 
     <link rel="stylesheet" href="assets/css/style.css">
     <title>Document</title>
 </head>
 
-<body id="game-area">
-    <header>
-        <h1> WordDash </h1>
-        <span id="level-label">
-            <span>
+<body>
+    <header id="header">
+        <div id="header-top-row">
+            <h1> WordDash </h1>
+            <span id="level-label">
+                <!-- <span>
                 LEVEL:
+            </span> -->
+                <span id="selected-level">EASY</span>
             </span>
-            <span id="selected-level">EASY</span>
-        </span>
-        <span id="gear-icon">
-            <i class="fa-solid fa-gear"></i>
-        </span>
+            <span id="gear-icon">
+                <i class="fa-solid fa-gear"></i>
+            </span>
+        </div>
+
+        <div id="entry-panel">
+            <input id="user-guess" type="text" placeholder="type a 5 letter word" maxlength="5">
+            <div id="guessed-letters">
+                <p>guessed letters:</p>
+                <p id="used-letters">A</p>
+            </div>
+            <input type="button" value="CLICK/ENTER TO GUESS!" id="guess-button">
+        </div>
     </header>
 
     <!--Sample word guess row - this gets duplicted via JS depending on how many guesses allowed -->
     <main id="word-area">
-        <div id="guess-rows">
-            <section class="guess-row" ID="guess-0">
+
+
+        <section id="guess-rows">
+            <div class="guess-row" ID="guess-0">
                 <div class="letter-box" id="letter-00"></div>
                 <div class="letter-box" id="letter-01"></div>
                 <div class="letter-box" id="letter-02"></div>
                 <div class="letter-box" id="letter-03"></div>
                 <div class="letter-box" id="letter-04"></div>
-            </section>
-        </div>
-
-        <div ID="guessed-letters">
-            <p>guessed letters</p>
-            <p ID="used-letters"></p>
-        </div>
-
-        <input id="user-guess" type="text" placeholder="type a 5 letter word" maxlength="5">
-
-        <input type="button" value="GUESS!" id="guess-button">
-
+            </div>
+        </section>
 
         <!-- ##################### HIDDEN SECTION - ENABLED VIA JS ########################-->
         <div ID="popup-level" class="popup-message">

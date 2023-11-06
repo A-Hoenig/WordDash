@@ -7,54 +7,20 @@
     padding: 0;
     box-sizing: border-box;
 }
-
-/* position header elements dynamically */
-header {
-    display: flex;
-    justify-content: space-between;
-    padding-left: 30px;
-    padding-right: 30px;
-}
-
-/* style Game Name */
-h1 {
-    text-align: center;
-    font-family: 'roboto', sans-serif;
-    font-size: 2em;
-}
-
-#level-label{
-    align-self: center;
-}
-/* header title showing current difficulty */
-#selected-level {
-    font-size: 1.5em;
-    align-self: center;
-    font-weight: 900;
-}
-
-/* game control gear icon to show level selector*/
-#gear-icon {
-    font-size: 1.5em;
-    align-self: center;
-}
-
-#gear-icon:hover {
-    color: brown;
-}
-
-/* style of game area*/
+/* set defaults for whole page*/
 body {
     font-family: 'roboto', sans-serif;
     background: moccasin;
-    display: grid;
-    grid-template-rows: auto 1fr;
-    padding: 15px;
-    min-width: 395px;
+    /* border: 10px solid brown;
+    border-radius: 10px; */
+    min-width: 364px;
+    z-index: 99;
+    
 }
 
+
 /* body:before technique found at https://stackoverflow.com/questions/18789748/how-to-get-an-offset-border-round-the-visible-part-of-the-browser-window*/
-body:before {
+/* body:before {
     border: 8px solid brown;
     border-radius: 10px;
     box-shadow: 0 0 100px 100px #fff;
@@ -66,12 +32,99 @@ body:before {
     left: 10px;
     right: 10px;
     top: 10px;
-  }
+    z-index: 99;
+} */
+
+header {
+    background-color: moccasin;
+    border: 5px solid brown;
+    /* border-bottom: 5px solid brown; */
+    align-self: center;
+    position: fixed;
+    width: 100%;
+    padding: 10px;
+    top: 0;
+}
+
+#header-top-row {
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+}
+
+#entry-panel {
+   
+}
+
+/* style list of used letters */
+#guessed-letters {
+    border: 3px solid black;
+    border-radius: 5px;
+    background: white;
+    text-transform: uppercase;
+    font-weight: 900;
+   
+}
+
+#used-letters {
+    letter-spacing: 0.5em;
+    overflow-wrap: break-word;
+    text-align: center;
+}
+
+#user-guess {
+    display: block;
+    background: moccasin;
+    border: 3px solid black;
+    border-radius: 5px;
+    padding: 3px;
+    font-weight: bold;
+    font-size: 1.7em;
+    text-align: center;
+    box-shadow: inset gray 0px 0px 60px -12px;
+    text-transform: uppercase;
+    width: 100%;
+}
+
+#user-guess::placeholder {
+    color: rgb(100, 100, 100);
+    text-transform: lowercase;
+}
+
+/* style guess button */
+#guess-button {
+    display: block;
+    background: burlywood;
+    border: 3px solid brown;
+    border-radius: 5px;
+    padding: 3px;
+    width: 100%;
+    height: 50px;
+    font-weight: bold;
+    font-size: 1.5em;
+    margin: auto;
+
+}
+
+#guess-button:hover {
+    background: green;
+    color: white;
+    border-color: black;
+}
+
+#word-area {
+    margin-top: 220px;
+}
+
+#guess-rows {
+  /* min-width: 350px; */
+}
 
 /* positioning of one row of letters */
 .guess-row {
     display: flex;
     justify-content: center;
+    
 }
 
 /* standard style of a letter box/tile */
@@ -86,6 +139,7 @@ body:before {
     font-weight: 900;
     font-size: 3em;
     border-radius: 10px;
+    aspect-ratio: 1 / 1;
 }
 
 /* class to highlight which box contains a letter in correct position*/
@@ -98,67 +152,7 @@ body:before {
     background: rgb(255, 200, 0.5);
 }
 
-/* style list of used letters */
-#guessed-letters {
-    border: 3px solid black;
-    border-radius: 5px;
-    background: white;
-    width: 75%;
-    margin: auto;
-    margin-top: 10px;
-    text-transform: uppercase;
-    font-weight: 900;
-    padding: 3px;
-    min-width: 340px;
-    max-width: 340px;
-    text-align: center;
-}
 
-#used-letters {
-    letter-spacing: 0.5em;
-    overflow-wrap: break-word;
-}
-
-#user-guess {
-    margin: 10px auto;
-    display: block;
-    background: moccasin;
-    border: 3px solid black;
-    border-radius: 5px;
-    padding: 3px;
-    width: 340px;
-    height: 50px;
-    font-weight: bold;
-    font-size: 1.7em;
-    text-align: center;
-    box-shadow: inset gray 0px 0px 60px -12px;
-    text-transform: uppercase;
-}
-
-#user-guess::placeholder {
-    color: rgb(100, 100, 100);
-    text-transform:lowercase;
-}
-
-/* style guess button */
-#guess-button {
-    margin: 10px auto;
-    display: block;
-    background: burlywood;
-    border: 3px solid brown;
-    border-radius: 5px;
-    padding: 3px;
-    width: 200px;
-    height: 50px;
-    font-weight: bold;
-    font-size: 1.5em;
-}
-
-#guess-button:hover {
-    background: green;
-    color: white;
-    border-color: black;
-}
 
 /* position popup boxes in middle fo screen */
 .popup-message {
