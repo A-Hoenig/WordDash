@@ -107,6 +107,11 @@ body {
     text-align: center;
 }
 
+#used-letters {
+    letter-spacing: 0.5em;
+    overflow-wrap: break-word;
+}
+
 #user-guess {
     margin: 10px auto;
     display: block;

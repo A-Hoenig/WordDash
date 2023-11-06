@@ -195,47 +195,30 @@ function colorLetters(userguess, answer, row) {
     nonExactMatches.forEach((element) => document.getElementById(element).classList.add("correct-letter"));
 }
 
-/** gets all guessed letters from game area, adds user guess letters and removes duplicates and sorts,
+/** gets list of letters from game area, adds unique user guess letters and sorts,
  * then writes it all back to the game area
  */
 function updateUsedLetters(userguess) {
-    userguess = userguess.toLowerCase(); //incase user types a captial letter
+    // create current used letter array from HTML element
+    const letterListArray = document.getElementById("used-letters").textContent.split('');
+    console.log(letterListArray);
+    // convert userguess into an array of letters
+    const userguessArray = userguess.split('');
 
-    // get current letters in #used-letters <p>
-    let oldLettersString = document.getElementById("used-letters").textContent;
-    //create array of already used letters
-    let oldLettersListArray = [];
-    for (let i = 0; i < oldLettersString.length; i++) {
-        if (oldLettersString[i] !== " ") { oldLettersListArray.push(oldLettersString[i]) };
+    // check each letter and add if not in the list already
+    for (let letter of userguessArray) {
+        if (!letterListArray.includes(letter)) {
+            letterListArray.push(letter);
+        }
     }
-    // add the letters of the current guessed word
-    for (let i = 0; i < 5; i++) {
-        oldLettersListArray.push(userguess[i]);
-    }
-    // remove any duplicates  
-    let newLettersListArray = uniq(oldLettersListArray); //function found on stackoverflow
-    // sort the array
-    newLettersListArray.sort();
-    // write array back to paragraph element
-    let newLettersString = "";
-    for (let i = 0; i < newLettersListArray.length; i++) {
-        newLettersString = newLettersString + newLettersListArray[i] + " ";
-    }
-    document.getElementById("used-letters").textContent = newLettersString;
+    // sort the array 
+    letterListArray.sort();
+    // convert array back to a string
+    newLetterListString = letterListArray.join('');
+    //now write list back to game area
+    document.getElementById("used-letters").textContent = newLetterListString;
 }
-// found at https://stackoverflow.com/questions/9229645/remove-duplicate-values-from-js-array
-/** removes any duplicate values from an array */
-function uniq(a) {
-    var prims = { "boolean": {}, "number": {}, "string": {} }, objs = [];
 
-    return a.filter(function (item) {
-        var type = typeof item;
-        if (type in prims)
-            return prims[type].hasOwnProperty(item) ? false : (prims[type][item] = true);
-        else
-            return objs.indexOf(item) >= 0 ? false : objs.push(item);
-    });
-}
 
 /* current bugs */
 // word verification has stopped working
