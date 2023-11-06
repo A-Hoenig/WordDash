@@ -195,9 +195,12 @@ function colorLetters(userguess, answer, row) {
     nonExactMatches.forEach((element) => document.getElementById(element).classList.add("correct-letter"));
 }
 
+/** gets all guessed letters from game area, adds user guess letters and removes duplicates and sorts,
+ * then writes it all back to the game area
+ */
 function updateUsedLetters(userguess) {
     userguess = userguess.toLowerCase(); //incase user types a captial letter
-    
+
     // get current letters in #used-letters <p>
     let oldLettersString = document.getElementById("used-letters").textContent;
     //create array of already used letters
@@ -205,32 +208,29 @@ function updateUsedLetters(userguess) {
     for (let i = 0; i < oldLettersString.length; i++) {
         if (oldLettersString[i] !== " ") { oldLettersListArray.push(oldLettersString[i]) };
     }
-    console.log("old Letters : " + oldLettersListArray);
     // add the letters of the current guessed word
     for (let i = 0; i < 5; i++) {
-        oldLettersListArray.push(userguess[i]) ;
+        oldLettersListArray.push(userguess[i]);
     }
-    console.log("added guess Letters : " + oldLettersListArray);
     // remove any duplicates  
-    let newLettersListArray = uniq(oldLettersListArray);
-    console.log(newLettersListArray);
+    let newLettersListArray = uniq(oldLettersListArray); //function found on stackoverflow
     // sort the array
     newLettersListArray.sort();
     // write array back to paragraph element
     let newLettersString = "";
     for (let i = 0; i < newLettersListArray.length; i++) {
-        newLettersString = newLettersString + newLettersListArray[i] + " "; 
-        console.log (newLettersString);
+        newLettersString = newLettersString + newLettersListArray[i] + " ";
     }
     document.getElementById("used-letters").textContent = newLettersString;
 }
 // found at https://stackoverflow.com/questions/9229645/remove-duplicate-values-from-js-array
+/** removes any duplicate values from an array */
 function uniq(a) {
-    var prims = {"boolean":{}, "number":{}, "string":{}}, objs = [];
+    var prims = { "boolean": {}, "number": {}, "string": {} }, objs = [];
 
-    return a.filter(function(item) {
+    return a.filter(function (item) {
         var type = typeof item;
-        if(type in prims)
+        if (type in prims)
             return prims[type].hasOwnProperty(item) ? false : (prims[type][item] = true);
         else
             return objs.indexOf(item) >= 0 ? false : objs.push(item);
@@ -244,7 +244,6 @@ function uniq(a) {
 
 
 /* To DO LIST 
-// guessed letters output
 // show win or lose popup
 // fix restart function without causing constant webpage reload
 // only allow level change if game is ended */
