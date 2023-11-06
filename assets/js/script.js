@@ -196,17 +196,46 @@ function colorLetters(userguess, answer, row) {
 }
 
 function updateUsedLetters(userguess) {
+    userguess = userguess.toLowerCase(); //incase user types a captial letter
+    
     // get current letters in #used-letters <p>
-    let currentLetters = document.getElementById("used-letters").textContent
-    //create array of alreay used letters
-    const usedLettersArray = [];
-    for (let i=0; i < currentLetters.length; i++) {
-        if (currentLetters[i] !== " ") { usedLettersArray.push(currentLetters[i]) };
+    let oldLettersString = document.getElementById("used-letters").textContent;
+    //create array of already used letters
+    let oldLettersListArray = [];
+    for (let i = 0; i < oldLettersString.length; i++) {
+        if (oldLettersString[i] !== " ") { oldLettersListArray.push(oldLettersString[i]) };
     }
-    console.log (usedLettersArray);
+    console.log("old Letters : " + oldLettersListArray);
+    // add the letters of the current guessed word
+    for (let i = 0; i < 5; i++) {
+        oldLettersListArray.push(userguess[i]) ;
+    }
+    console.log("added guess Letters : " + oldLettersListArray);
+    // remove any duplicates  
+    let newLettersListArray = uniq(oldLettersListArray);
+    console.log(newLettersListArray);
+    // sort the array
+    newLettersListArray.sort();
+    // write array back to paragraph element
+    let newLettersString = "";
+    for (let i = 0; i < newLettersListArray.length; i++) {
+        newLettersString = newLettersString + newLettersListArray[i] + " "; 
+        console.log (newLettersString);
+    }
+    document.getElementById("used-letters").textContent = newLettersString;
 }
+// found at https://stackoverflow.com/questions/9229645/remove-duplicate-values-from-js-array
+function uniq(a) {
+    var prims = {"boolean":{}, "number":{}, "string":{}}, objs = [];
 
-
+    return a.filter(function(item) {
+        var type = typeof item;
+        if(type in prims)
+            return prims[type].hasOwnProperty(item) ? false : (prims[type][item] = true);
+        else
+            return objs.indexOf(item) >= 0 ? false : objs.push(item);
+    });
+}
 
 /* current bugs */
 // word verification has stopped working
