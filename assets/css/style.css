@@ -47,19 +47,26 @@ h1 {
 body {
     font-family: 'roboto', sans-serif;
     background: moccasin;
-    border: 8px solid brown;
-    border-radius: 10px;
-    width: 100vw;
-    padding: 5px;
-    min-width: 400px;
-}
-
-/* create 2 row grid 1 for header info and one large one for game area */
-#game-area {
-    height: 100vh;
     display: grid;
     grid-template-rows: auto 1fr;
+    padding: 15px;
+    min-width: 395px;
 }
+
+/* body:before technique found at https://stackoverflow.com/questions/18789748/how-to-get-an-offset-border-round-the-visible-part-of-the-browser-window*/
+body:before {
+    border: 8px solid brown;
+    border-radius: 10px;
+    box-shadow: 0 0 100px 100px #fff;
+    display: block;
+    content: '';
+    position: fixed;
+    pointer-events: none;
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
+    top: 10px;
+  }
 
 /* positioning of one row of letters */
 .guess-row {
@@ -102,8 +109,8 @@ body {
     text-transform: uppercase;
     font-weight: 900;
     padding: 3px;
-    min-width: 300px;
-    max-width: 400px;
+    min-width: 340px;
+    max-width: 340px;
     text-align: center;
 }
 
@@ -119,7 +126,7 @@ body {
     border: 3px solid black;
     border-radius: 5px;
     padding: 3px;
-    width: 360px;
+    width: 340px;
     height: 50px;
     font-weight: bold;
     font-size: 1.7em;
