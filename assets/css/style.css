@@ -7,6 +7,7 @@
     padding: 0;
     box-sizing: border-box;
 }
+
 /* set defaults for whole page*/
 body {
     font-family: 'roboto', sans-serif;
@@ -15,7 +16,7 @@ body {
     border-radius: 10px; */
     min-width: 364px;
     z-index: 99;
-    
+    background: url("../images/background.jpg") repeat center center/cover;
 }
 
 header {
@@ -34,7 +35,7 @@ header {
 #header-top-row {
     display: flex;
     flex-direction: row;
-    justify-content:space-between;
+    justify-content: space-between;
     justify-self: center;
 }
 
@@ -50,7 +51,7 @@ header {
 }
 
 #entry-panel {
-   max-width: 400px;
+    max-width: 400px;
 }
 
 /* style list of used letters */
@@ -60,7 +61,9 @@ header {
     background: white;
     text-transform: uppercase;
     font-weight: 900;
-   
+    min-height: 44px;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 #used-letters {
@@ -112,15 +115,11 @@ header {
     margin-top: 220px;
 }
 
-#guess-rows {
-  /* min-width: 350px; */
-}
-
 /* positioning of one row of letters */
 .guess-row {
     display: flex;
     justify-content: center;
-    
+
 }
 
 /* standard style of a letter box/tile */
