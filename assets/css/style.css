@@ -18,25 +18,8 @@ body {
     
 }
 
-
-/* body:before technique found at https://stackoverflow.com/questions/18789748/how-to-get-an-offset-border-round-the-visible-part-of-the-browser-window*/
-/* body:before {
-    border: 8px solid brown;
-    border-radius: 10px;
-    box-shadow: 0 0 100px 100px #fff;
-    display: block;
-    content: '';
-    position: fixed;
-    pointer-events: none;
-    bottom: 10px;
-    left: 10px;
-    right: 10px;
-    top: 10px;
-    z-index: 99;
-} */
-
 header {
-    background-color: moccasin;
+    background-color: rgba(255, 227, 179, 0.8);
     border: 5px solid brown;
     /* border-bottom: 5px solid brown; */
     align-self: center;
@@ -44,16 +27,30 @@ header {
     width: 100%;
     padding: 10px;
     top: 0;
+    max-width: 400px;
+    margin: 4px;
 }
 
 #header-top-row {
     display: flex;
     flex-direction: row;
     justify-content:space-between;
+    justify-self: center;
+}
+
+#selected-level {
+    font-weight: 900;
+    align-self: center;
+}
+
+#gear-icon {
+    font-weight: 900;
+    align-self: center;
+    font-size: 1.4em;
 }
 
 #entry-panel {
-   
+   max-width: 400px;
 }
 
 /* style list of used letters */
@@ -103,7 +100,6 @@ header {
     font-weight: bold;
     font-size: 1.5em;
     margin: auto;
-
 }
 
 #guess-button:hover {
