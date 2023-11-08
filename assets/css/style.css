@@ -12,8 +12,6 @@
 body {
     font-family: 'roboto', sans-serif;
     background: moccasin;
-    /* border: 10px solid brown;
-    border-radius: 10px; */
     min-width: 364px;
     z-index: 99;
     /* background: url("../images/background.jpg") repeat center center/cover; */
@@ -25,10 +23,10 @@ header {
     border-radius: 10px;
     align-self: center;
     position: fixed;
-    width: 100%;
+    width: 300px;
     padding: 10px;
     top: 0;
-    max-width: 400px;
+    /* max-width: 400px; */
     margin: 4px;
 }
 
@@ -119,7 +117,7 @@ header {
 }
 
 #word-area {
-    margin-top: 220px;
+    margin-top: 170px;
 }
 
 /* positioning of one row of letters */
@@ -127,6 +125,11 @@ header {
     display: flex;
     justify-content: center;
 
+}
+
+#guess-rows {
+    position: absolute;
+    z-index: -1;
 }
 
 /* standard style of a letter box/tile */
@@ -161,8 +164,10 @@ header {
     margin: 5px;
     position: absolute;
     top: 170px;
-    width: 400px;
-    height: 350px;
+    width: 90%;
+    min-width: 260px;
+    max-width: 300px;
+    height: 370px;
     border: 5px solid brown;
     border-radius: 10px;
     text-align: center;
@@ -171,6 +176,7 @@ header {
     font-weight: 900;
     font-size: 1.5em;
     text-transform: uppercase;
+    /* display: none; */
 }
 
 /* style level buttons on popup*/
@@ -180,7 +186,7 @@ header {
     font-weight: 900;
     font-size: 1.1em;
     margin-bottom: 20px;
-    width: 200px;
+    width: 80%;
     border: 4px solid black;
     border-radius: 10px;
 }
