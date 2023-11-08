@@ -25,13 +25,17 @@ document.getElementById("guess-button").disabled = true;
 // INITIAL GAME SETUP //
 function setEasy() {
     document.getElementById('answer-word').innerHTML = words[Math.floor(Math.random() * words.length)]; // get random word form array and add it to the hidden solution element
+
     console.log("start easy game");
+    console.log('answer: ' + document.getElementById('answer-word').textContent); // can be deleted after error checking
+    console.log("------------------------------"); // can be deleted after error checking
+
     document.getElementById('selected-level').innerHTML = "EASY";
     document.getElementById("popup-level").style.display = "none"; // hide game menu
     setupGuessRows(7); // easy level = 7 guesses
     document.getElementById("user-guess").disabled = false;
-document.getElementById("guess-button").disabled = false;
-
+    document.getElementById("guess-button").disabled = false;
+    document.getElementById("user-guess").placeholder = "type a 5 letter word";
     document.getElementById("user-guess").focus(); // add cursor to guess window so user can immediately type
 }
 
@@ -65,26 +69,45 @@ function setupGuessRows(guesses) {
 function processTurn() {
 
     let turnNumber = parseInt(document.getElementById('turnNumber').textContent); // get current turn number from hidden #turn-number div
-    let maxTurns = parseInt(document.getElementById('maxTurns').textContent);  // get current maximum turns from hidden #maxTurns div
+    let maxTurns = parseInt(document.getElementById('maxTurns').textContent) - 1;  // get current maximum turns from hidden #maxTurns div
     let answer = document.getElementById('answer-word').textContent;  // get word answer to compare to guess
     let userguess = document.getElementById('user-guess').value;  // get word answer to compare to guess
+    userguess = userguess.toLowerCase(); //convert all to lowercase incase caps lock is on
+    let regex = /^[a-zA-Z]+$/; //allowed letters for answer
 
-    console.log('turn number: ' + turnNumber); // can be deleted after error checking
-    console.log('max turns: ' + maxTurns); // can be deleted after error checking
-    console.log('answer: ' + answer); // can be deleted after error checking
-    console.log('users guess: ' + userguess); // can be deleted after error checking
-
-    if (userguess.length < 5) {
-        document.getElementById('user-guess').value = "";
-        document.getElementById("user-guess").placeholder = "invalid word!";
-    }   else {
-        document.getElementById("user-guess").placeholder = "type a 5 letter word";
-        addWordToGrid(userguess, turnNumber);
-        colorLetters(userguess, answer, turnNumber);
-        updateUsedLetters(userguess);
+    if (turnNumber > maxTurns) {
+        
+         // game over
+         document.getElementById("user-guess").disabled = true;
+         document.getElementById("guess-button").disabled = true;
+         document.getElementById("user-guess").placeholder = "YOU LOST!"
+        return; // dont process guess after max turns reached
     }
 
+    console.log('turn: ' + (turnNumber + 1) + " out of " + (maxTurns + 1)); // can be deleted after error checking
+    console.log('users guess: ' + userguess); // can be deleted after error checking
 
+    if (userguess === answer) {
+        document.getElementById("user-guess").placeholder = "YOU WON!"
+        document.getElementById("user-guess").disabled = true;
+        document.getElementById("guess-button").disabled = true;
+        addWordToGrid(userguess, turnNumber); // no need to check guess as answer is correct format
+        colorLetters(userguess, answer, turnNumber);
+        updateUsedLetters(userguess);
+        console.log("------------------------------");
+        return;
+    } else if (userguess.length < 5 || regex.test(userguess) === false) {
+            document.getElementById('user-guess').value = "";
+            document.getElementById("user-guess").placeholder = "invalid word!";
+        } else {
+            document.getElementById("user-guess").placeholder = "type a 5 letter word";
+            addWordToGrid(userguess, turnNumber);
+            colorLetters(userguess, answer, turnNumber);
+            updateUsedLetters(userguess);
+            console.log("------------------------------");
+            
+            document.getElementById('turnNumber').textContent = turnNumber + 1; // increment turn number
+        }
 
 }
 
@@ -94,6 +117,7 @@ function processTurn() {
 function addWordToGrid(userguess, row) {
     console.log("add word to grid: " + userguess + " row: " + row);
 
+
     //loop though child letter elements and add each letterID
     if (userguess === null || row === null) {
         //do nothing
@@ -101,7 +125,6 @@ function addWordToGrid(userguess, row) {
 
         for (let i = 0; i < 5; i++) {
             let destinationID = `letter-${row}${i}`;
-            console.log(destinationID);
             document.getElementById(destinationID).textContent = userguess.charAt(i);
         }
 
@@ -155,7 +178,6 @@ function colorLetters(userguess, answer, row) {
 function updateUsedLetters(userguess) {
     // create current used letter array from HTML element
     const letterListArray = document.getElementById("used-letters").textContent.split('');
-    console.log(letterListArray);
     // convert userguess into an array of letters
     const userguessArray = userguess.split('');
 
