@@ -6,51 +6,37 @@ const words = ["bronc", "cites", "cilia", "burgs", "lilts", "floor", "trips", "s
 
 document.getElementById('restart-button').addEventListener('click', restart);
 document.getElementById('level-easy').addEventListener('click', setEasy);
-document.getElementById('level-medium').addEventListener('click', setNormal);
-document.getElementById('level-master').addEventListener('click', setMaster);
+document.getElementById('level-medium').addEventListener('click', setEasy);
+document.getElementById('level-master').addEventListener('click', setEasy);
 
-document.getElementById('guess-button').addEventListener('click', mainGameLoop);
+document.getElementById('guess-button').addEventListener('click', processTurn);
 document.getElementById('gear-icon').addEventListener('click', gameMenu);
 document.getElementById("user-guess").addEventListener("keydown", function (event) {
     if (event.key === "Enter") {
-        mainGameLoop();
+        processTurn();
     }
 });
 // ###################################################################################
 // ###################################################################################
 
-// GAME SETUP ON PAGE LOAD 
-document.getElementById('answer-word').innerHTML = words[Math.floor(Math.random() * words.length)]; // get random word form array and add it to the hidden solution element
-console.log(document.getElementById('answer-word').innerHTML); // DELETE ME ONCE ERROR CHECKING IS DONE !!!!
+document.getElementById("user-guess").disabled = true;
+document.getElementById("guess-button").disabled = true;
 
+// INITIAL GAME SETUP //
 function setEasy() {
+    document.getElementById('answer-word').innerHTML = words[Math.floor(Math.random() * words.length)]; // get random word form array and add it to the hidden solution element
     console.log("start easy game");
     document.getElementById('selected-level').innerHTML = "EASY";
     document.getElementById("popup-level").style.display = "none"; // hide game menu
     setupGuessRows(7); // easy level = 7 guesses
+    document.getElementById("user-guess").disabled = false;
+document.getElementById("guess-button").disabled = false;
+
     document.getElementById("user-guess").focus(); // add cursor to guess window so user can immediately type
-    mainGameLoop();
-}
-function setNormal() {
-    console.log('start medium game');
-    document.getElementById('selected-level').innerHTML = "NORMAL";
-    document.getElementById("popup-level").style.display = "none"; // hide game menu
-    setupGuessRows(6); // normal level = 6 guesses
-    document.getElementById("user-guess").focus(); // add cursor to guess window so user can immediately type
-    mainGameLoop();
-}
-function setMaster() {
-    console.log('start hard game');
-    document.getElementById('selected-level').innerHTML = "MASTER";
-    document.getElementById("popup-level").style.display = "none"; // hide game menu
-    setupGuessRows(5); // master level = 5 guesses
-    document.getElementById("user-guess").focus(); // add cursor to guess window so user can immediately type
-    mainGameLoop();
 }
 
 function restart() {
     alert("This will end the game!")
-   
 }
 
 /** generates a dynamic number of rows with unique Id for each letter box. (Format: id='letter-xn'
@@ -61,26 +47,52 @@ function setupGuessRows(guesses) {
 
     const guessRows = document.getElementById('guess-rows');
     /* loop to build n rows of HTML based on level */
-    for (let i = 0; i < guesses ; i++) {
-        let string = "<section class='guess-row' id='guess-" + (i ) + "'>"; 
+    document.getElementById('maxTurns').innerHTML = guesses; /* write maximum number of turns to dom */
+
+    for (let i = 0; i < guesses; i++) {
+        let string = "<section class='guess-row' id='guess-" + (i) + "'>";
         for (let r = 0; r < 5; r++) {
             string = string + `
-          <div class="letter-box" id="letter-${i + 1}${r}"></div>`
+          <div class="letter-box" id="letter-${i}${r}"></div>`
         }
         string = string + `
       </section>
       `
         guessRows.insertAdjacentHTML("beforeend", string);
-        // console.log(string) //delete this once it works
     }
 }
 
+function processTurn() {
 
+    let turnNumber = parseInt(document.getElementById('turnNumber').textContent); // get current turn number from hidden #turn-number div
+    let maxTurns = parseInt(document.getElementById('maxTurns').textContent);  // get current maximum turns from hidden #maxTurns div
+    let answer = document.getElementById('answer-word').textContent;  // get word answer to compare to guess
+    let userguess = document.getElementById('user-guess').value;  // get word answer to compare to guess
+
+    console.log('turn number: ' + turnNumber); // can be deleted after error checking
+    console.log('max turns: ' + maxTurns); // can be deleted after error checking
+    console.log('answer: ' + answer); // can be deleted after error checking
+    console.log('users guess: ' + userguess); // can be deleted after error checking
+
+    if (userguess.length < 5) {
+        document.getElementById('user-guess').value = "";
+        document.getElementById("user-guess").placeholder = "invalid word!";
+    }   else {
+        document.getElementById("user-guess").placeholder = "type a 5 letter word";
+        addWordToGrid(userguess, turnNumber);
+        colorLetters(userguess, answer, turnNumber);
+        updateUsedLetters(userguess);
+    }
+
+
+
+}
 
 /** takes the word and row input and places each letter on the board
  * then resets focus for a new entry
  */
 function addWordToGrid(userguess, row) {
+    console.log("add word to grid: " + userguess + " row: " + row);
 
     //loop though child letter elements and add each letterID
     if (userguess === null || row === null) {
@@ -89,57 +101,14 @@ function addWordToGrid(userguess, row) {
 
         for (let i = 0; i < 5; i++) {
             let destinationID = `letter-${row}${i}`;
+            console.log(destinationID);
             document.getElementById(destinationID).textContent = userguess.charAt(i);
         }
 
-        document.getElementById("user-guess").value = "";
-        document.getElementById("user-guess").focus();
+        document.getElementById("user-guess").value = ""; // deleted guessed word from button
+        document.getElementById("user-guess").focus(); // set focus on button for next word
     }
 }
-//#######################################################################################
-/** main game loop. check turn elememt on page to end game after set number of guesses */
-//#######################################################################################
-
-function mainGameLoop() {
-    // get current turn number from hidden #turn-number div
-    let turnNumber = parseInt(document.getElementById('turnNumber').textContent);
-    // get word answer to compare to guess
-    answer = document.getElementById('answer-word').innerHTML;
-
-    console.log('turn number: ' + turnNumber); // can be deleted after error checking
-
-    if (turnNumber < numberOfRows) {
-
-        // get users guess from input field
-        let userguess = document.getElementById('user-guess').value;
-        userguess = userguess.toLowerCase(); //convert all to lowercase incase caps lock is on
-        let regex = /^[a-zA-Z]+$/; //allowed letters for answer
-
-        if (userguess.length = 5 && regex.test(userguess)) {
-            // check and add word to grid
-            addWordToGrid(userguess, turnNumber);
-            // verify colors for correct letters
-            colorLetters(userguess, answer, turnNumber);
-            //check if game won
-
-            // update used letters
-            updateUsedLetters(userguess);
-            /* increment turn at the end */
-            document.getElementById('turnNumber').textContent = turnNumber + 1; // increment turn number
-        } else {
-
-            alert('please input a valid 5 letter word!'); // not a valid input
-
-        }
-    } else {
-        // GAME OVER
-        alert("sorry, you've run out of guesses")
-    }
-}
-
-//#######################################################################################
-//############################## main game loop end  ####################################
-//#######################################################################################
 
 /** bring up game menu to change difficulty or resart */
 function gameMenu() {

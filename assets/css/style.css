@@ -82,7 +82,7 @@ header {
     border-radius: 5px;
     padding: 3px;
     font-weight: bold;
-    font-size: 1.5em;
+    font-size: 1em;
     text-align: center;
     box-shadow: inset gray 0px 0px 60px -12px;
     text-transform: uppercase;
@@ -221,5 +221,9 @@ header {
 }
 
 #turnNumber {
-    display: none;
+    display: none; /* hide DOM turn counter */
+}
+
+#maxTurns {
+    display: none; /* hide DOM max turns */
 }
