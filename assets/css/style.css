@@ -16,12 +16,13 @@ body {
     border-radius: 10px; */
     min-width: 364px;
     z-index: 99;
-    background: url("../images/background.jpg") repeat center center/cover;
+    /* background: url("../images/background.jpg") repeat center center/cover; */
 }
 
 header {
     background-color: rgba(255, 227, 179, 0.8);
     border: 5px solid brown;
+    border-radius: 5px;
     /* border-bottom: 5px solid brown; */
     align-self: center;
     position: fixed;
@@ -54,11 +55,16 @@ header {
     max-width: 400px;
 }
 
+#input-fields {
+    display: grid;
+    grid-template-columns: 75% 25%;
+}
+
 /* style list of used letters */
 #guessed-letters {
-    border: 3px solid black;
+    /* border: 3px solid black;
     border-radius: 5px;
-    background: white;
+    background: white; */
     text-transform: uppercase;
     font-weight: 900;
     min-height: 44px;
@@ -79,11 +85,12 @@ header {
     border-radius: 5px;
     padding: 3px;
     font-weight: bold;
-    font-size: 1.7em;
+    font-size: 1.5em;
     text-align: center;
     box-shadow: inset gray 0px 0px 60px -12px;
     text-transform: uppercase;
     width: 100%;
+    
 }
 
 #user-guess::placeholder {
@@ -99,9 +106,10 @@ header {
     border-radius: 5px;
     padding: 3px;
     width: 100%;
+    min-width: 79px;
     height: 50px;
     font-weight: bold;
-    font-size: 1.5em;
+    font-size: 1.1em;
     margin: auto;
 }
 
