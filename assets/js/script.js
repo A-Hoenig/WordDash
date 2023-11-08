@@ -5,12 +5,12 @@ const words = ["bronc", "cites", "cilia", "burgs", "lilts", "floor", "trips", "s
 // ####################################################################################
 
 document.getElementById('restart-button').addEventListener('click', restart);
-document.getElementById('level-easy').addEventListener('click', setEasy);
-document.getElementById('level-medium').addEventListener('click', setEasy);
-document.getElementById('level-master').addEventListener('click', setEasy);
+document.getElementById('level-easy').addEventListener('click', easy);
+document.getElementById('level-normal').addEventListener('click', normal);
+document.getElementById('level-master').addEventListener('click', expert);
 
 document.getElementById('guess-button').addEventListener('click', processTurn);
-document.getElementById('gear-icon').addEventListener('click', gameMenu);
+// document.getElementById('gear-icon').addEventListener('click', gameMenu);
 document.getElementById("user-guess").addEventListener("keydown", function (event) {
     if (event.key === "Enter") {
         processTurn();
@@ -22,17 +22,47 @@ document.getElementById("user-guess").addEventListener("keydown", function (even
 document.getElementById("user-guess").disabled = true;
 document.getElementById("guess-button").disabled = true;
 
+function easy() {
+    document.getElementById("selected-level").innerText = "easy";
+    startGame("easy");
+    return;
+}
+function normal() {
+    document.getElementById("selected-level").innerText = "normal";
+    startGame("normal");
+    return;
+}
+function expert() {
+    document.getElementById("selected-level").innerText = "expert";
+    startGame("expert");
+    return;
+}
+
 // INITIAL GAME SETUP //
-function setEasy() {
+function startGame(level) {
+    
+    let turns;
+
     document.getElementById('answer-word').innerHTML = words[Math.floor(Math.random() * words.length)]; // get random word form array and add it to the hidden solution element
 
-    console.log("start easy game");
+    console.log("start " + level + " game");
     console.log('answer: ' + document.getElementById('answer-word').textContent); // can be deleted after error checking
     console.log("------------------------------"); // can be deleted after error checking
 
-    document.getElementById('selected-level').innerHTML = "EASY";
+    // set up how many turns each type of level gets
+   
+    if (level==="expert") {
+         turns = 5
+    } else if (level==="normal") {
+        turns = 6
+    } else {    
+        turns = 7
+    }
+    console.log( level + " level = " + turns + " turns")
+
+    document.getElementById('selected-level').innerHTML = level;
     document.getElementById("popup-level").style.display = "none"; // hide game menu
-    setupGuessRows(7); // easy level = 7 guesses
+    setupGuessRows(turns); // // 5,6, or 7 turns
     document.getElementById("user-guess").disabled = false;
     document.getElementById("guess-button").disabled = false;
     document.getElementById("user-guess").placeholder = "type a 5 letter word";

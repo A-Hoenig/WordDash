@@ -23,7 +23,7 @@ header {
     border-radius: 10px;
     align-self: center;
     position: fixed;
-    width: 300px;
+    width: 345px;
     padding: 10px;
     top: 0;
     /* max-width: 400px; */
@@ -40,6 +40,7 @@ header {
 #selected-level {
     font-weight: 900;
     align-self: center;
+    text-transform: uppercase;
 }
 
 #gear-icon {
@@ -165,8 +166,8 @@ header {
     position: absolute;
     top: 170px;
     width: 90%;
-    min-width: 260px;
-    max-width: 300px;
+    min-width: 345px;
+    max-width: 345px;
     height: 370px;
     border: 5px solid brown;
     border-radius: 10px;
@@ -198,9 +199,7 @@ header {
 
 /* hide popups*/
 /* style of level select popup - default hidden */
-#popup-level {
-    /* display: none; */
-}
+
 
 /* style of winning popup - default hidden */
 #popup-won {
