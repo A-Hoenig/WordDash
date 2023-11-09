@@ -190,12 +190,15 @@ header {
 
 /* position popup boxes in middle fo screen */
 .popup-message {
-    margin: 5px;
-    position: absolute;
-    top: 170px;
+    margin: auto;
+    position: fixed;
+    top: 50%;
+    left: 50%; 
+    transform: translate(-50%, -50%);
+
     width: 90%;
     min-width: 345px;
-    max-width: 345px;
+    max-width: 400px;
     height: 370px;
     border: 5px solid brown;
     border-radius: 10px;
@@ -230,7 +233,9 @@ header {
     display: none;
     font-size: 1.5em;
     background: lightgreen;
-    top: 0;
+    top: 50%;
+    left: 50%; 
+    transform: translate(-50%, -50%);
 }
 
 #picture-medal {
@@ -241,7 +246,9 @@ header {
 #popup-lost {
     display: none;
     background: orange;
-    top: 0;
+    top: 50%;
+    left: 50%; 
+    transform: translate(-50%, -50%);
 }
 
 /* style of instructions popup - default hidden */
@@ -254,6 +261,7 @@ header {
     padding: 10px;
     justify-content: center;
     flex-wrap: wrap;
+    z-index: 99;
 }
 
 #popup-info #picture-info {
@@ -290,7 +298,7 @@ header {
         left: 350px;
      } */
 
-     #popup-won {
+     /* #popup-won {
         position: fixed;
         left: 0;
     }
@@ -307,6 +315,6 @@ header {
     #popup-level {
         position: fixed;
         left: 0;
-    }
+    } */
 
 }
