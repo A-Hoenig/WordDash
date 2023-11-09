@@ -4,7 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+
     <link rel="stylesheet" href="assets/css/style.css">
     <title>Document</title>
 </head>
@@ -26,12 +31,12 @@
                 <input id="user-guess" type="text" placeholder="select level" maxlength="5">
                 <input type="button" value="SUBMIT" id="guess-button">
             </span>
-            
+
             <div id="guessed-letters">
                 <p>guessed letters:</p>
                 <p id="used-letters"></p>
             </div>
-            
+
         </div>
     </header>
 
@@ -56,7 +61,8 @@
         <div ID="popup-won" class="popup-message">
             <p id="winner">YOU WON!!</p>
             <p id="winner">CONGRATULATIONS!</p>
-            <img id="picture-medal" width="200" height="200" src="/assets/images/reshot-icon-winner.svg" alt="cartoon people celebrating"/>
+            <img id="picture-medal" width="200" height="200" src="./assets/images/reshot-icon-winner.svg"
+                alt="winner medal" />
         </div>
 
         <div ID="popup-lost" class="popup-message">
@@ -64,7 +70,8 @@
             <p>the correct word was:</p>
             <br>
             <p id="answer-word"></p>
-            <img id="picture-sad" width="200" height="200" src="/assets/images/reshot-icon-sad.svg" alt="cartoon people celebrating"/>
+            <img id="picture-sad" width="200" height="200" src="./assets/images/reshot-icon-sad.svg"
+                alt="sad person crying" />
         </div>
 
         <div id="turnNumber">0</div>
