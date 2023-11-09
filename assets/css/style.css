@@ -24,10 +24,11 @@ header {
     border-radius: 10px;
     align-self: center;
     position: fixed;
-    width: 345px;
+    min-width: 345px;
+    width: 99%;
     padding: 10px;
     top: 0;
-    margin: 4px;
+    margin: auto;
 }
 
 /* spread title, level and info buttin dynamically */
@@ -58,7 +59,9 @@ header {
 
 /* fix size of word entry and submit button */
 #entry-panel {
-    max-width: 400px;
+    max-width: 350px;
+    position: float;
+    margin: auto;  
 }
 
 /* place inputs dynamically in a grid and space correctly */
@@ -129,7 +132,9 @@ header {
 
 /* place word area below inputs */
 #word-area {
-    margin-top: 170px;
+    margin-top: 70px;
+  display: block;
+ 
 }
 
 /* positioning of one row of letters */
@@ -140,7 +145,8 @@ header {
 }
 
 #guess-rows {
-    position: absolute;
+    position: float;
+
     z-index: -1;
 }
 
@@ -167,6 +173,19 @@ header {
 /* class to highlight which box contains a letter in wrong position */
 .correct-letter {
     background: rgb(255, 200, 0.5);
+}
+
+#footer {
+    background-color: rgba(255, 227, 179, 0.8);
+    border: 5px solid brown;
+    border-radius: 10px;
+    align-self: center;
+    position: float;
+    min-width: 345px;
+    width: 99%;
+    padding: 10px;
+    top: 0;
+    margin: auto;
 }
 
 /* position popup boxes in middle fo screen */
@@ -265,11 +284,11 @@ header {
 
 @media screen and (min-width: 712px) {
     
-    #word-area {
+    /* #word-area {
         position:relative;
         top: -170px;
         left: 350px;
-     }
+     } */
 
      #popup-won {
         position: fixed;

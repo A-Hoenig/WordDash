@@ -25,8 +25,19 @@
                     <i class="fa-solid fa-circle-info"></i>
                 </span>
             </div>
+        </header>
 
-            <div id="entry-panel">
+    <!--word row area - this gets created via JS depending on how many guesses allowed -->
+    <main id="word-area">
+
+        <div id="guess-rows">
+            <h2 class="hide">Gameplay Area</h2>
+            <!-- guess row divs placed here with JS -->
+      </div>
+      
+      
+      <footer id="footer">
+        <div id="entry-panel">
                 <span id="input-fields">
                     <input id="user-guess" type="text" placeholder="select level" maxlength="5">
                     <input type="button" value="SUBMIT" id="guess-button">
@@ -36,17 +47,8 @@
                     <p>guessed letters:</p>
                     <p id="used-letters"></p>
                 </div>
-
             </div>
-        </header>
-
-    <!--word row area - this gets created via JS depending on how many guesses allowed -->
-    <main id="word-area">
-
-        <div id="guess-rows">
-            <h2 class="hide">Gameplay Area</h2>
-            <!-- guess row divs placed here with JS -->
-        </div>
+      </footer>
 
         <!-- ##################### HIDDEN SECTION - ENABLED VIA JS ########################-->
         <div ID="popup-level" class="popup-message">
