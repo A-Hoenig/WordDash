@@ -75,6 +75,7 @@ header {
     min-height: 44px;
     padding-left: 10px;
     padding-right: 10px;
+    background: moccasin;
 }
 
 /* ensure used letters wrap to next row */
@@ -259,27 +260,6 @@ header {
     display: none; /* hide DOM max turns */
 }
 
-/* header sticky fix */
-#header-wrap {
-    position: sticky;
-    top: 10px;
-    height: 60px;
-    width: 100%;
-  }
-  
-  #header{
-    position: absolute;
-    left: 0px;
-    right: 0px;
-    padding: 15px;
-    background-color: moccasin;
-  }
-  
-  #header.down {
-    transition-property: all;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    transition-duration: 500ms;
-  }
 
 /* MEDIA QUERIES FOR LANDSCAPE AND LARGER SCREENS */
 
