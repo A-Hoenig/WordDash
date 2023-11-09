@@ -66,10 +66,7 @@ header {
 
 /* style list of used letters */
 #guessed-letters {
-    /* border: 3px solid black;
-    border-radius: 5px;
-    background: white; */
-    text-transform: uppercase;
+   text-transform: uppercase;
     font-weight: 900;
     min-height: 44px;
     padding-left: 10px;
@@ -238,7 +235,6 @@ header {
 }
 
 #popup-info #picture-info {
-    
     justify-content: center;
     width: 100%;
     height: auto;
@@ -256,4 +252,37 @@ header {
 
 #maxTurns {
     display: none; /* hide DOM max turns */
+}
+
+/* MEDIA QUERIES FOR LANDSCAPE AND LARGER SCREENS */
+
+@media screen and (min-width: 712px) {
+    
+    #word-area {
+        position:relative;
+        top: -170px;
+        left: 350px;
+     }
+
+     #popup-won {
+        position: fixed;
+        left: 0;
+    }
+     #popup-lost {
+        position: fixed;
+        left: 0;
+    }
+     
+     #popup-info {
+        position: fixed;
+        left: 0;
+    }
+
+    #popup-level {
+        position: fixed;
+        left: 0;
+    }
+
+
+
 }
