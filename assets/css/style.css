@@ -181,13 +181,13 @@ header {
     border-radius: 10px;
     text-align: center;
     padding-top: 20px;
-    background:rgba(255, 255, 255, 0.8);
+    background:rgba(251, 229, 187, 0.8);
     font-weight: 900;
     font-size: 1.5em;
     text-transform: uppercase;
 }
 
-/* style level buttons on popup*/
+/* style level buttons on popup */
 .level-button {
     height: 50px;
     text-align: center;
@@ -202,6 +202,7 @@ header {
 .level-button:hover {
     background: green;
     cursor: pointer;
+    color: white;
 }
 
 /* style of winning popup - default hidden */
@@ -226,7 +227,7 @@ header {
 /* style of instructions popup - default hidden */
 #popup-info {
     display: flex;
-    background: lightgrey;
+    background:rgba(251, 229, 187, 1);
     font-size: 1em;
     text-transform: unset;
     text-align: Left;

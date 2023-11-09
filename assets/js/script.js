@@ -249,6 +249,4 @@ function showInstructions () {
 /* To DO LIST 
 optional check box to force words to be from list // valid
 add background
-finish styling
-
-
+finish styling */
