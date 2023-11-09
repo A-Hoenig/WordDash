@@ -36,6 +36,10 @@ header {
     justify-content: space-between;
     justify-self: center;
 }
+
+#info-icon{
+    font-size: 1.2em;
+}
 .popup-text {
     margin: 15px;
 }
@@ -179,7 +183,6 @@ header {
     font-weight: 900;
     font-size: 1.5em;
     text-transform: uppercase;
-    /* display: none; */
 }
 
 /* style level buttons on popup*/
@@ -221,6 +224,25 @@ header {
     background: orange;
     top: 0;
 }
+
+/* style of instructions popup - default hidden */
+#popup-info {
+    display: flex;
+    background: lightgrey;
+    font-size: 1em;
+    text-transform: unset;
+    text-align: Left;
+    padding: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+#popup-info #picture-info {
+    
+    justify-content: center;
+    
+}
+
 
 /* increase size of solution word */
 #answer-word {

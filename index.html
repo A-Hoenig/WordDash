@@ -8,7 +8,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
+    <link rel="manifest" href="/site.webmanifest" crossorigin="use-credentials">
 
     <link rel="stylesheet" href="assets/css/style.css">
     <title>Document</title>
@@ -21,8 +21,8 @@
             <span id="selected-level">
                 easy
             </span>
-            <span id="gear-icon">
-                <i class="fa-solid fa-gear"></i>
+            <span id="info-icon">
+                <i class="fa-solid fa-circle-info"></i>
             </span>
         </div>
 
@@ -49,7 +49,6 @@
 
         <!-- ##################### HIDDEN SECTION - ENABLED VIA JS ########################-->
         <div ID="popup-level" class="popup-message">
-            <p class="popup-text">Reload Page to start a new game</p>
             <p class="popup-text">SELECT DIFFICULTY</p>
             <input type="button" id="level-easy" value="EASY" class="level-button">
             <br>
@@ -71,6 +70,17 @@
             <br>
             <p id="answer-word"></p>
             <img id="picture-sad" width="200" height="200" src="./assets/images/reshot-icon-sad.svg"
+                alt="sad person crying" />
+        </div>
+
+        <div ID="popup-info" class="popup-message">
+            <p>Try to guess the correct 5 letter word.</p>
+            <p>A yellow tile indicates correct letter, wrong position</p>
+            <p>A green tile indicates a correct match!</p>
+            <p>Can you guess it before your moves run out?</p>
+            <p>Reload the page to start a new game</p>
+            
+            <img id="picture-info" width="100" height="100" src="./assets/images/reshot-icon-sad.svg"
                 alt="sad person crying" />
         </div>
 

@@ -16,6 +16,8 @@ document.getElementById("user-guess").addEventListener("keydown", function (even
         processTurn();
     }
 });
+document.getElementById('info-icon').addEventListener('click', showInstructions);
+document.getElementById('popup-info').addEventListener('click', showInstructions);
 // ###################################################################################
 // ###################################################################################
 
@@ -230,6 +232,11 @@ function updateUsedLetters(userguess) {
     newLetterListString = letterListArray.join('');
     //now write list back to game area
     document.getElementById("used-letters").textContent = newLetterListString;
+}
+
+function showInstructions () {
+    var i = document.getElementById("popup-info");
+    i.style.visibility = i.style.visibility === 'hidden' ? '' : 'hidden';
 }
 
 
