@@ -242,6 +242,10 @@ header {
     height: auto;
 }
 
+.hide {
+    display: none; /*hide semantic elements not needed*/
+}
+
 /* increase size of solution word */
 #answer-word {
     font-size: 2em;

@@ -4,13 +4,10 @@ const words = ["bronc", "cites", "cilia", "burgs", "lilts", "floor", "trips", "s
 // ########################### setup eventlisteners ###################################
 // ####################################################################################
 
-// document.getElementById('restart-button').addEventListener('click', restart);
 document.getElementById('level-easy').addEventListener('click', easy);
 document.getElementById('level-normal').addEventListener('click', normal);
 document.getElementById('level-master').addEventListener('click', expert);
-
 document.getElementById('guess-button').addEventListener('click', processTurn);
-// document.getElementById('gear-icon').addEventListener('click', gameMenu);
 document.getElementById("user-guess").addEventListener("keydown", function (event) {
     if (event.key === "Enter") {
         processTurn();
@@ -54,13 +51,13 @@ function startGame(level) {
     // set up how many turns each type of level gets
    
     if (level==="expert") {
-         turns = 5
+         turns = 5;
     } else if (level==="normal") {
-        turns = 6
+        turns = 6;
     } else {    
-        turns = 7
+        turns = 7;
     }
-    console.log( level + " level = " + turns + " turns")
+    console.log( level + " level = " + turns + " turns");
 
     document.getElementById('selected-level').innerHTML = level;
     document.getElementById("popup-level").style.display = "none"; // hide game menu
@@ -69,10 +66,6 @@ function startGame(level) {
     document.getElementById("guess-button").disabled = false;
     document.getElementById("user-guess").placeholder = "type a 5 letter word";
     document.getElementById("user-guess").focus(); // add cursor to guess window so user can immediately type
-}
-
-function restart() {
-    alert("This will end the game!")
 }
 
 /** generates a dynamic number of rows with unique Id for each letter box. (Format: id='letter-xn'
@@ -89,11 +82,11 @@ function setupGuessRows(guesses) {
         let string = "<section class='guess-row' id='guess-" + (i) + "'>";
         for (let r = 0; r < 5; r++) {
             string = string + `
-          <div class="letter-box" id="letter-${i}${r}"></div>`
+          <div class="letter-box" id="letter-${i}${r}"></div>`;
         }
         string = string + `
       </section>
-      `
+      `;
         guessRows.insertAdjacentHTML("beforeend", string);
     }
 }
@@ -112,7 +105,7 @@ function processTurn() {
 
     if (userguess === answer) {
 
-        document.getElementById("user-guess").placeholder = "YOU WON!"
+        document.getElementById("user-guess").placeholder = "YOU WON!";
         document.getElementById("user-guess").disabled = true;
         document.getElementById("guess-button").disabled = true;
         addWordToGrid(userguess, turnNumber); // no need to check guess as answer is correct format
@@ -140,7 +133,7 @@ function processTurn() {
             // game over
             document.getElementById("user-guess").disabled = true;
             document.getElementById("guess-button").disabled = true;
-            document.getElementById("user-guess").placeholder = "YOU LOST!"
+            document.getElementById("user-guess").placeholder = "YOU LOST!";
             console.log("------END OF GAME----------");
             document.getElementById("popup-lost").style.display = "block"; //show winner popup
             return; // dont process guess after max turns reached
@@ -172,19 +165,11 @@ function addWordToGrid(userguess, row) {
     }
 }
 
-/** bring up game menu to change difficulty or resart */
-function gameMenu() {
-    // if (document.getElementById("popup-level").style.display === "none") {
-    //     document.getElementById("popup-level").style.display = "block";
-    // } else if (document.getElementById("popup-level").style.display === "block") {
-    //     document.getElementById("popup-level").style.display = "none";
-    // }
-}
-
 function colorLetters(userguess, answer, row) {
-
-    const exactMatches = [];
-    const nonExactMatches = [];
+    let userguessArray = [];
+    let exactMatches = [];
+    let nonExactMatches = [];
+    let answerArray = [];
 
     //convert userguess and answer to arrays of 5 letters
     userguessArray = userguess.split('');
@@ -216,10 +201,10 @@ function colorLetters(userguess, answer, row) {
  */
 function updateUsedLetters(userguess) {
     // create current used letter array from HTML element
-    const letterListArray = document.getElementById("used-letters").textContent.split('');
+    let letterListArray = document.getElementById("used-letters").textContent.split('');
     // convert userguess into an array of letters
-    const userguessArray = userguess.split('');
-
+    let userguessArray = userguess.split('');
+    let newLetterListString = "";
     // check each letter and add if not in the list already
     for (let letter of userguessArray) {
         if (!letterListArray.includes(letter)) {

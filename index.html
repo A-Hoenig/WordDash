@@ -43,9 +43,10 @@
     <!--word row area - this gets created via JS depending on how many guesses allowed -->
     <main id="word-area">
 
-        <section id="guess-rows">
+        <div id="guess-rows">
+            <h2 class= "hide">Gameplay Area</h2>
             <!-- guess row divs placed here with JS -->
-        </section>
+        </div>
 
         <!-- ##################### HIDDEN SECTION - ENABLED VIA JS ########################-->
         <div ID="popup-level" class="popup-message">
@@ -57,14 +58,14 @@
             <input type="button" id="level-master" value="MASTER" class="level-button">
             <br>
             <img id="picture-logo" width="50" height="50" src="./android-chrome-512x512.png"
-                alt="word dash logo" />
+                alt="word dash logo">
         </div>
 
         <div ID="popup-won" class="popup-message">
-            <p id="winner">YOU WON!!</p>
-            <p id="winner">CONGRATULATIONS!</p>
+            <p>YOU WON!!</p>
+            <p>CONGRATULATIONS!</p>
             <img id="picture-medal" width="200" height="200" src="./assets/images/reshot-icon-winner.svg"
-                alt="winner medal" />
+                alt="winner medal">
         </div>
 
         <div ID="popup-lost" class="popup-message">
@@ -73,7 +74,7 @@
             <br>
             <p id="answer-word"></p>
             <img id="picture-sad" width="200" height="200" src="./assets/images/reshot-icon-sad.svg"
-                alt="sad person crying" />
+                alt="sad person crying">
         </div>
 
         <div ID="popup-info" class="popup-message">
@@ -84,7 +85,7 @@
             <p>Reload the page to start a new game</p>
             
             <img id="picture-info" width="100" height="100" src="./assets/images/user-guess.png"
-                alt="example guess row" />
+                alt="example guess row">
         </div>
 
         <div id="turnNumber">0</div>
