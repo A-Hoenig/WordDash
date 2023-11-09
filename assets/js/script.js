@@ -241,12 +241,14 @@ function showInstructions () {
 
 
 /* current bugs */
-// word verification has stopped working
-// gear icon needs a double click to show menu
-// end of game needs to not allow input anymore
+
+
+
 
 
 /* To DO LIST 
-// show win or lose popup
-// fix restart function without causing constant webpage reload
-// only allow level change if game is ended */
+optional check box to force words to be from list // valid
+add background
+finish styling
+
+

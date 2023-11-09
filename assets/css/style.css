@@ -17,6 +17,7 @@ body {
     /* background: url("../images/background.jpg") repeat center center/cover; */
 }
 
+/* style header and fix size */
 header {
     background-color: rgba(255, 227, 179, 0.8);
     border: 5px solid brown;
@@ -26,10 +27,10 @@ header {
     width: 345px;
     padding: 10px;
     top: 0;
-    /* max-width: 400px; */
     margin: 4px;
 }
 
+/* spread title, level and info buttin dynamically */
 #header-top-row {
     display: flex;
     flex-direction: row;
@@ -49,19 +50,22 @@ header {
     text-transform: uppercase;
 }
 
-#gear-icon {
+#info-icon {
     font-weight: 900;
     align-self: center;
     font-size: 1.4em;
 }
 
+/* fix size of word entry and submit button */
 #entry-panel {
     max-width: 400px;
 }
 
+/* place inputs dynamically in a grid and space correctly */
 #input-fields {
     display: grid;
     grid-template-columns: 75% 25%;
+    gap: 3px;
 }
 
 /* style list of used letters */
@@ -73,12 +77,14 @@ header {
     padding-right: 10px;
 }
 
+/* ensure used letters wrap to next row */
 #used-letters {
     letter-spacing: 0.5em;
     overflow-wrap: break-word;
     text-align: center;
 }
 
+/* stuyle word input box */
 #user-guess {
     display: block;
     background: moccasin;
@@ -120,6 +126,7 @@ header {
     border-color: black;
 }
 
+/* place word area below inputs */
 #word-area {
     margin-top: 170px;
 }
@@ -151,17 +158,15 @@ header {
     aspect-ratio: 1 / 1;
 }
 
-/* class to highlight which box contains a letter in correct position*/
+/* class to highlight which box contains a letter in correct position */
 .correct-posit {
     background: rgba(0, 200, 0, 0.5);
 }
 
-/* class to highlight which box contains a letter in wrong position*/
+/* class to highlight which box contains a letter in wrong position */
 .correct-letter {
     background: rgb(255, 200, 0.5);
 }
-
-
 
 /* position popup boxes in middle fo screen */
 .popup-message {
@@ -199,10 +204,6 @@ header {
     cursor: pointer;
 }
 
-/* hide popups*/
-/* style of level select popup - default hidden */
-
-
 /* style of winning popup - default hidden */
 #popup-won {
     display: none;
@@ -239,7 +240,6 @@ header {
     width: 100%;
     height: auto;
 }
-
 
 /* increase size of solution word */
 #answer-word {
@@ -282,7 +282,5 @@ header {
         position: fixed;
         left: 0;
     }
-
-
 
 }
