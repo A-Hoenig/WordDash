@@ -208,12 +208,18 @@ header {
     display: none;
     font-size: 1.5em;
     background: lightgreen;
+    top: 0;
+}
+
+#picture-medal {
+    margin-top: 30px;
 }
 
 /* style of losing popup - default hidden */
 #popup-lost {
     display: none;
     background: orange;
+    top: 0;
 }
 
 /* increase size of solution word */

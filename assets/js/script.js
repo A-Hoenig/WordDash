@@ -140,6 +140,7 @@ function processTurn() {
             document.getElementById("guess-button").disabled = true;
             document.getElementById("user-guess").placeholder = "YOU LOST!"
             console.log("------END OF GAME----------");
+            document.getElementById("popup-lost").style.display = "block"; //show winner popup
             return; // dont process guess after max turns reached
         }
 
