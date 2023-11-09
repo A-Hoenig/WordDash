@@ -204,10 +204,11 @@ header {
     border-radius: 10px;
     text-align: center;
     padding-top: 20px;
-    background:rgba(251, 229, 187, 0.8);
+    background:rgba(251, 229, 187, 1);
     font-weight: 900;
     font-size: 1.5em;
     text-transform: uppercase;
+    filter: drop-shadow(30px 10px 10px #313131);
 }
 
 /* style level buttons on popup */
