@@ -4,7 +4,7 @@ const words = ["bronc", "cites", "cilia", "burgs", "lilts", "floor", "trips", "s
 // ########################### setup eventlisteners ###################################
 // ####################################################################################
 
-document.getElementById('restart-button').addEventListener('click', restart);
+// document.getElementById('restart-button').addEventListener('click', restart);
 document.getElementById('level-easy').addEventListener('click', easy);
 document.getElementById('level-normal').addEventListener('click', normal);
 document.getElementById('level-master').addEventListener('click', expert);
@@ -116,6 +116,7 @@ function processTurn() {
         addWordToGrid(userguess, turnNumber); // no need to check guess as answer is correct format
         colorLetters(userguess, answer, turnNumber);
         updateUsedLetters(userguess);
+        document.getElementById("popup-won").style.display = "block"; //show winner popup
         console.log("---------USER WON!! -----------");
         return;
 

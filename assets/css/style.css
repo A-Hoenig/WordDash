@@ -36,7 +36,9 @@ header {
     justify-content: space-between;
     justify-self: center;
 }
-
+.popup-text {
+    margin: 15px;
+}
 #selected-level {
     font-weight: 900;
     align-self: center;
@@ -204,7 +206,7 @@ header {
 /* style of winning popup - default hidden */
 #popup-won {
     display: none;
-    font-size: 3em;
+    font-size: 1.5em;
     background: lightgreen;
 }
 
