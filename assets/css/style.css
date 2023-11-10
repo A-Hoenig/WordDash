@@ -14,7 +14,7 @@ body {
     background: moccasin;
     min-width: 364px;
     z-index: 99;
-    /* background: url("../images/background.jpg") repeat center center/cover; */
+    background: url("../images/background.png") repeat center center/cover;
 }
 
 /* style header and fix size */

@@ -42,7 +42,7 @@ function expert() {
  * adjust difficulty. no more than 8 as row 9 reserved for answer popup
  */
 function startGame(level) {
-    
+
     let turns;
 
     document.getElementById('answer-word').innerHTML = words[Math.floor(Math.random() * words.length)]; // get random word form array and add it to the hidden solution element
@@ -52,15 +52,14 @@ function startGame(level) {
     console.log("------------------------------"); // can be deleted after error checking
 
     // set up how many turns each type of level gets
-   
-    if (level==="expert") {
-         turns = 5;
-    } else if (level==="normal") {
+
+    if (level === "expert") {
+        turns = 5;
+    } else if (level === "normal") {
         turns = 6;
-    } else {    
+    } else {
         turns = 7;
     }
-    console.log( level + " level = " + turns + " turns");
 
     document.getElementById('selected-level').innerHTML = level;
     document.getElementById("popup-level").style.display = "none"; // hide game menu
@@ -148,7 +147,7 @@ function processTurn() {
             return; // dont process guess after max turns reached
         }
 
-    } 
+    }
 
 }
 
@@ -168,7 +167,14 @@ function addWordToGrid(userguess, row) {
             let destinationID = `letter-${row}${i}`;
             document.getElementById(destinationID).textContent = userguess.charAt(i);
         }
-
+        //scroll to added word for smaller screens with keyboard in view as well
+        let scrollDestination = `guess-${row}`;
+        console.log ("scroll to :" + scrollDestination);
+        if (scrollDestination === null || scrollDestination === "guess-9") {
+            // do nothing in when game is won - can't scroll to popup
+        } else {
+            document.getElementById(scrollDestination).scrollIntoView({ behavior: "smooth", block: "end", inline: "nearest" });
+        }
         document.getElementById("user-guess").value = ""; // deleted guessed word from button
         document.getElementById("user-guess").focus(); // set focus on button for next word
     }
@@ -182,7 +188,7 @@ function colorLetters(userguess, answer, row) {
     let answerArray = [];
     let exactMatches = []; //store all element ID's where letters are an exact match
     let nonExactMatches = []; // store all element ID's where letters are included but wrong posit
-    
+
     //convert userguess and answer to arrays of 5 letters
     userguessArray = userguess.split('');
     answerArray = answer.split('');
@@ -231,7 +237,7 @@ function updateUsedLetters(userguess) {
     document.getElementById("used-letters").textContent = newLetterListString;
 }
 
-function showInstructions () {
+function showInstructions() {
     var i = document.getElementById("popup-info");
     i.style.visibility = i.style.visibility === 'hidden' ? '' : 'hidden';
 }
