@@ -38,6 +38,9 @@ function expert() {
 }
 
 // INITIAL GAME SETUP //
+/** sets up the gme and gets everything ready. variable turn values can be changed to 
+ * adjust difficulty. no more than 8 as row 9 reserved for answer popup
+ */
 function startGame(level) {
     
     let turns;
@@ -90,7 +93,10 @@ function setupGuessRows(guesses) {
         guessRows.insertAdjacentHTML("beforeend", string);
     }
 }
-
+/** main funtion to process a game turn when the user hits enter or clicks the submit button
+ * it checks for correct word, compares the maximum amount of turns and 
+ * then triggers win or lose.
+ */
 function processTurn() {
 
     let turnNumber = parseInt(document.getElementById('turnNumber').textContent); // get current turn number from hidden #turn-number div
@@ -168,6 +174,9 @@ function addWordToGrid(userguess, row) {
     }
 }
 
+/** compares the guess with teh answer and then colors the letters accordingly
+ * in the give row. row numbering starts at 0!
+ */
 function colorLetters(userguess, answer, row) {
     let userguessArray = [];
     let exactMatches = [];
