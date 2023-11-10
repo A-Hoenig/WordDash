@@ -174,15 +174,15 @@ function addWordToGrid(userguess, row) {
     }
 }
 
-/** compares the guess with teh answer and then colors the letters accordingly
- * in the give row. row numbering starts at 0!
+/** compares the guess with the answer and then colors the letters accordingly
+ * in the given row. row numbering starts at 0!
  */
 function colorLetters(userguess, answer, row) {
     let userguessArray = [];
-    let exactMatches = [];
-    let nonExactMatches = [];
     let answerArray = [];
-
+    let exactMatches = []; //store all element ID's where letters are an exact match
+    let nonExactMatches = []; // store all element ID's where letters are included but wrong posit
+    
     //convert userguess and answer to arrays of 5 letters
     userguessArray = userguess.split('');
     answerArray = answer.split('');
@@ -203,7 +203,7 @@ function colorLetters(userguess, answer, row) {
             answerArray[answerArray.indexOf(userguessArray[x])] = null; // marks as matched
         }
     }
-    //now color the respective letters based on both arrays
+    //now add the respective color class to all applicable letters
     exactMatches.forEach((element) => document.getElementById(element).classList.add("correct-posit"));
     nonExactMatches.forEach((element) => document.getElementById(element).classList.add("correct-letter"));
 }
