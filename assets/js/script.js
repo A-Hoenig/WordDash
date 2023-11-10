@@ -111,8 +111,11 @@ function processTurn() {
         addWordToGrid(userguess, turnNumber); // no need to check guess as answer is correct format
         colorLetters(userguess, answer, turnNumber);
         updateUsedLetters(userguess);
+        addWordToGrid(answer, 9); //add answer to popup
         document.getElementById("popup-won").style.display = "block"; //show winner popup
+
         console.log("---------USER WON!! -----------");
+
         return;
 
     } else if (userguess.length < 5 || regex.test(userguess) === false) {

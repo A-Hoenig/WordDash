@@ -241,6 +241,14 @@ header {
 
 #picture-medal {
     margin-top: 30px;
+    margin-bottom: 15px;
+}
+
+/* style answer word in popup*/
+#guess-answer div {
+    font-size: 2em;
+    background: rgba(0, 200, 0, 0.5);
+   margin: auto;
 }
 
 /* style of losing popup - default hidden */
