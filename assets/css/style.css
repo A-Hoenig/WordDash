@@ -195,7 +195,6 @@ header {
     top: 50%;
     left: 50%; 
     transform: translate(-50%, -50%);
-
     width: 90%;
     min-width: 345px;
     max-width: 400px;
@@ -266,21 +265,24 @@ header {
     background:rgba(251, 229, 187, 1);
     font-size: 1em;
     text-transform: unset;
-    text-align: Left;
+    text-align: center;
+    line-height: 2em;
     padding: 10px;
     justify-content: center;
     flex-wrap: wrap;
     z-index: 99;
 }
 
+/* space popup picture correctly*/
 #popup-info #picture-info {
     justify-content: center;
     width: 100%;
-    height: auto;
+    min-width: 330px;
+    height:75px;
 }
 
 .hide {
-    display: none; /*hide semantic elements not needed*/
+    display: none; /* class to hide semantic elements not needed*/
 }
 
 /* increase size of solution word */
