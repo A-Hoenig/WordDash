@@ -7,7 +7,7 @@
 
 
 
-![Summary of Site on different screens](assets/readme-images/am-i-res1.jpg)
+![Summary of Site on different screens](assets/docs/app_screenshot.png)
 
 ## CONTENTS
 
@@ -47,10 +47,10 @@ In summary the site should contain these basic sections:
 ### Built With
 * [https://www.gitpod.io/](GitPod)
 
-![GitHub last commit](https://img.shields.io/github/last-commit/A-Hoenig/Project-One?color=red&style=for-the-badge)
-![GitHub contributors](https://img.shields.io/github/contributors/A-Hoenig/Project-One?color=orange&style=for-the-badge)
-![GitHub language count](https://img.shields.io/github/languages/count/A-Hoenig/Project-One?color=yellow&style=for-the-badge)
-![GitHub top language](https://img.shields.io/github/languages/top/A-Hoenig/Project-One?color=green&style=for-the-badge)
+![GitHub last commit](https://img.shields.io/github/last-commit/A-Hoenig/WordDash?color=red&style=for-the-badge)
+![GitHub contributors](https://img.shields.io/github/contributors/A-Hoenig/WordDash?color=orange&style=for-the-badge)
+![GitHub language count](https://img.shields.io/github/languages/count/A-Hoenig/WordDash?color=yellow&style=for-the-badge)
+![GitHub top language](https://img.shields.io/github/languages/top/A-Hoenig/WordDash?color=green&style=for-the-badge)
 
 <p align="right">(<a href="#contents">back to top</a>)</p>
 
@@ -60,7 +60,7 @@ In summary the site should contain these basic sections:
 The finished site is hosted with gitpages under:
 
 <br>
-<a href="https://a-hoenig.github.io/Project-One/">William Cooke Photography</a>
+<a href="https://a-hoenig.github.io/worddash/">WordDash Word Guessing Game</a>
 <br/>
 
 ## User Experience
@@ -84,15 +84,13 @@ Tht color #fafafa was used for text and button elements to reduce the stark cont
 
 ### Typography
 
-2 Fonts are used on the site for minimalist design. 
+One Font are used on the site to simulate the look of the classig table word guessing game Scrabble. 
 
-<a href="https://fonts.google.com/specimen/Montserrat?query=montserrat">Montserrat</a> Used for all site text and headings.
+<a href="https://fonts.google.com/specimen/Roboto?query=roboto">Roboto</a>  -- Used for all word tiles and game displays.
 
-![Montserrat Font Example](assets/readme-images/montserrat-sample.png)
+![Montserrat Font Example](assets/docs/font_example.png)
 
-<a href="https://fonts.google.com/specimen/Freehand?query=freehand">Freehand</a> Used only for the Site Title and the photographers signature.
 
-![Freehand Font Example](assets/readme-images/freehand-sample.png)
 
 <p align="right">(<a href="#contents">back to top</a>)</p>
 
@@ -101,21 +99,45 @@ Tht color #fafafa was used for text and button elements to reduce the stark cont
 
 Wireframes were created for mobile, tablet and desktop using Balsamiq.
 
-![Home Page](assets/readme-images/mockup-home.png)
-![About Section](assets/readme-images/mockup-about.png)
+The Landing page will display 2 popups. An initial info popup to explain the game mechanics
+Once acknowleged, the user will be presented with the second popup to select the diffculty level
+
+![Landing Page](assets/docs/wireframe_1.jpg)
+
+The main game are will display the game title graphics in a header,
+a block of 5 blank letter tiles showing the number of moves available.
+A footer where the user can enter a word, click a submit button (enter will also work) as well as see a list of already played letters arranged aplhabetically.
+
+![Main Game Area](assets/docs/wireframe_2.jpg)
 
 <p align="right">(<a href="#contents">back to top</a>)</p>
 
-![Gallery Page](assets/readme-images/mockup-gallery.png)
-![Testimonials Page](assets/readme-images/mockup-testimonials.png)
+each guess will be verified to contain only 5 letters (input field will not accept more than 5). Also, the guess will be checked for only valid letters lower or uppercase
+Once a valid word is submitted, it is added to the grid.
+Colors give feedback on the gues:
+
+* no color  : That letter is not contained in the word
+* orange : the letter is in the answer, but not at that position
+* green : a correct letter at the correct position is indicated
+
+![First Guess + Feedback](assets/docs/wireframe_3.jpg)
+
+using the clues the the user informs their next guess to try and narrow down the correct word.
+any letters can be guessed, but the number of guesses available limits how many clues can be gained from simply typing the alphabet.
+A future update could include the additional difficulty level of only allowing valid 5 letter words. The number of guesses would have to be adjusted to ensure realistic chance of success.
+![Second Guess + Feedback](assets/docs/wireframe_4.jpg)
 
 <p align="right">(<a href="#contents">back to top</a>)</p>
 
-![Contact Page](assets/readme-images/mockup-contact.png)
+![Third Guess + feedback](assets/docs/wireframe_5.jpg)
+
+
+Once the user gueses teh word correctly, or has run out of moves, a popup will display a congratulatory message or indicate game over and reveal the answer.
+![Game Win Popup (or Lose)](assets/docs/wireframe_6.jpg)
 
 <p align="right">(<a href="#contents">back to top</a>)</p>
 
-#### The Home Page
+#### The Landing Page
 
 The home page serves as the landing page and aims to impress the visitor with a striking studio portrait image that fills the screen on a minimal interface. The bold white text instantly informs the visitor what the purpose of the site is.
 
@@ -125,7 +147,7 @@ The navigation bar and footer are fixed to keep the site controls always visible
 
 A single white centered arrow invites the user to scroll down to view the next section - in this case the about summary of the photographer.
 
-#### The About Section
+#### The Game Area
 
 ![About Page image](assets/readme-images/screenshot-about.jpg)
 
@@ -133,7 +155,15 @@ The about section shows a self portrait of the Photographer and his welcome text
 
 <p align="right">(<a href="#contents">back to top</a>)</p>
 
-#### The Gallery Page
+#### Gameplay
+
+![About Page image](assets/readme-images/screenshot-about.jpg)
+
+The about section shows a self portrait of the Photographer and his welcome text to invite you in and share his passion. The text dynamically adjusts around the circular photo on larger screens.
+
+<p align="right">(<a href="#contents">back to top</a>)</p>
+
+#### In Game Popup Windows
 
 The gallery page is designed to put the pictures first on a clean well ordered canvas. Only minimal margins are used to allow maximum content. The columns dynamically adjust using HTML flex properties to adjust to all screen sizes. For phone displays only a single column is used with each picture taking up the full width. 
 
@@ -141,7 +171,7 @@ A simple white border is used as a mouse over effect to highlight a specific pic
 
 ![Gallery Page](assets/readme-images/screenshot-gallery.jpg)
 
-#### The Testimonials Page
+#### The Win / Lose User feedback
 
 This page uses a marquee effect of vertically scrolling text to showcase previous customers feedback. The text is scolled in a simple transparent frame that dynamically resizes for screen realestate.
 
@@ -149,20 +179,21 @@ This page uses a marquee effect of vertically scrolling text to showcase previou
 
 <p align="right">(<a href="#contents">back to top</a>)</p>
 
-#### The Contact Page
 
-The contact form invites the user to fill in their details and select what type of photoshoot they might be interested in. The form dynamically resizes to the left on larger screens to keep the interface manageable. The same form background styling is used as throughout the site.
-
-![Contact Page image](assets/readme-images/screenshot-contact.jpg)
 
 #### Future Implementations
 
-Future developement of the site would include:
+Future developement of the game could include:
 
-1. Clickable images in the gallery to present a photo on full screen.
-2. Left and right arrows to allow the user to step through the images.
-3. Dynamic effects and display of the pop up menu should be animated to make the transition less abrupt and convey a further sense of professionalism.
-4. Automated slide show of a collection of landing images to offer some variety on the main homepage.
+1. Running statistics of games played and a points system rewarding the earliest correct guess
+2. Optional checkbox to force the user to only post valid 5 letter words
+3. Add graphics animations to add a professional look
+4. create an in game onscreen keyboard to avoid the specific ios onscreen keyboard issue. This will eliminate the need fo the user to continually scroll bewteen the feeback word on the grid and the text ipnut field. The keyboard can then also color keys to indicate used letters.
+5. Additionally: option for 6 letter words
+6. Add backend implementation to keep the wordlist off site (on a server). the app could then only fetch a single random word from the server, rather than having to load the entire list of words on page load, improving performance.
+7. online challenges to friends and random users (first to finish wins)
+8. Option to to display the definition of a word
+9. option to prevent repeating already played words
 
 <p align="right">(<a href="#contents">back to top</a>)</p>
 
@@ -176,7 +207,7 @@ I have been mindful during coding to ensure that the website is as accessible fr
 * Ensuring that there is a sufficient colour contrast throughout the site.
 * Using detailed alt descriptions of all images and adding aria-labels for navigational elements where neccessary.
 
-![Contrast Button](assets/readme-images/button-hover.gif)
+![Contrast Button](assets/readme-images/button-hover.gif)*
 
 ## Technologies Used
 
