@@ -239,10 +239,10 @@ function updateUsedLetters(userguess) {
     //now write list back to game area
     document.getElementById("used-letters").textContent = newLetterListString;
 }
-
+/** toggles the info (gamerules) popup div on/off */
 function showInstructions() {
-    var i = document.getElementById("popup-info");
-    i.style.visibility = i.style.visibility === 'hidden' ? '' : 'hidden';
+    var popup = document.getElementById("popup-info");
+    popup.style.visibility = popup.style.visibility === 'hidden' ? '' : 'hidden';
 }
 
 function playAgain () {
