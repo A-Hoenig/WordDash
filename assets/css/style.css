@@ -199,7 +199,7 @@ header {
     width: 90%;
     min-width: 345px;
     max-width: 400px;
-    height: 370px;
+    height: auto;
     border: 5px solid brown;
     border-radius: 10px;
     text-align: center;
@@ -232,6 +232,7 @@ header {
 /* style of winning popup - default hidden */
 #popup-won {
     display: none;
+    height: 450px;
     font-size: 1.5em;
     background: lightgreen;
     top: 50%;
@@ -242,6 +243,10 @@ header {
 #picture-medal {
     margin-top: 30px;
     margin-bottom: 15px;
+}
+
+#popup-won #win-restart {
+    margin-top: 20px;
 }
 
 /* style answer word in popup*/
@@ -264,6 +269,7 @@ header {
 #popup-info {
     display: flex;
     background:rgba(251, 229, 187, 1);
+    height: 360px;
     font-size: 1em;
     text-transform: unset;
     text-align: center;
@@ -304,29 +310,6 @@ header {
 
 @media screen and (min-width: 712px) {
     
-    /* #word-area {
-        position:relative;
-        top: -170px;
-        left: 350px;
-     } */
 
-     /* #popup-won {
-        position: fixed;
-        left: 0;
-    }
-     #popup-lost {
-        position: fixed;
-        left: 0;
-    }
-     
-     #popup-info {
-        position: fixed;
-        left: 0;
-    }
-
-    #popup-level {
-        position: fixed;
-        left: 0;
-    } */
 
 }

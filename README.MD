@@ -207,7 +207,7 @@ I have been mindful during coding to ensure that the website is as accessible fr
 * Ensuring that there is a sufficient colour contrast throughout the site.
 * Using detailed alt descriptions of all images and adding aria-labels for navigational elements where neccessary.
 
-![Contrast Button](assets/docs/button-hover.gif)*
+![Button Highlights](assets/docs/button_hover.gif)
 
 ## Technologies Used
 
