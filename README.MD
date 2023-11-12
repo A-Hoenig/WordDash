@@ -32,16 +32,19 @@
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
-This website was built for a hypothetical client interested in showcasing his studio photography work. His express wishes were for a clean professional looking site that is easy to navigate and puts his work front and center. He also provided a short bio he wanted included on the site and wished for a contact form to be able to generate a list of potential clients. Finally, he provided a list of previous customer's feedback to be added on a seperate page as a testimonials section.
+This project was limited to building a fuctional interactive website using only HTML, CSS and JavaScript.
+The presented site implements a simple word guessing game in whiche the user is asekd to guess a 5 letter word.
+The game area is dynamically built using javascript to adjust how many guesses / rows are shown based on the slected level.
+The user recieves feedback on teh guess to see if a letter was correct or correct but in the wrong position.
 
-In summary the site should contain these basic sections:
+To maintain information required to track game variables the game is presented on a single page using hidden <divs> that can be displayed as in gaem popups to give the user feedback. This eliminates the need for a back end to store game inomation across multiple site pages.
 
+Implemented popups are:
 <ol>
-  <li>Home / Landing page showcasing primary work</li>
-  <li>About section with hero image to introduce the photographer</li>
-  <li>Gallery Page to show primary selected work</li>
-  <li>Testimonials page to show previous satisfied customers</li>
-  <li>Contact page / form to allow contacting the photographer</li>
+  <li>Info page / Landing page : shown on website load and explains the game. Also shown if user taps the 'i' icon in top right corner</li>
+  <li>Level selection Popup : 2 buttons to allow EASY, NORMAL or MASTER level selection</li>
+  <li>Win pop up : congratulates teh player for guessing correctly</li>
+  <li>Lose pop up : show game over graphic and displays teh correct answer</li>
 </ol>
 
 ### Built With
@@ -65,22 +68,27 @@ The finished site is hosted with gitpages under:
 
 ## User Experience
 
-To ease navigation, standard practices were used to allow the visitor quick access to the site pages via a Navigation bar. 
+The game is designed to be single use quick game fun. A maximum of 2 taps are needed to start the game and words can be entered by clicking submit button or just hitting the Enter key.
+Guesses are checked for validity at entry (5 valid alphabetic letters) - wrong inputs are rejected and the user is given feeback in the input field.
 
-In keeping with the 'mobile first' philosophy, on smaller screens the Navbar is consolidated into a 'menu burger icon' that presents a drop down view of the navigation bar when pressed.
+once a valid guess is accepted it is added to the board. Tiles are colored to indicate correct letters for both position and the letter itself.
 
-Other elements such as the Photographer's signature, the contact button and copyright info are all dynamically sized to make full use of the available screen realestate.
+The feedback lets the user make an infomed further guess to narrow down the correct word.
 
-Hover events are utilized thoughout to give feedback to the user that they are interacting with a clickable button.
+Previously played letters are displayed in a list above the input field to help with the guess, especially on smaller screens where not all rows might be visible due to the oncreen keyboard.
 
-Bold Font in the navigation bar visibly informs the user which page they are on.
+once the answer is found, or the maximum guesses is reached, the user recieves the appropriate feedback.
+
+To restart the game, simply reload the page.
 
 ## Design
 
 ### Colour Scheme
 
-The web interface was deliberately chosen with a monochrome dark grey and white look to offset the interface and provide a contrast to the pictures being presented.
-Tht color #fafafa was used for text and button elements to reduce the stark contrast of pure white on black.
+The color scheme was chose to replicate the feel of a table top word game such as scrabble. The background shows a similar theme.
+The main color used to achieve this was the system color :moccasin (hex code: #F7E6C0, or RGB(247, 230, 192))
+This main color is complemented buy brown or black borders. 
+Selectable items on mouse over are show with a green background and white text.
 
 ### Typography
 
@@ -89,8 +97,6 @@ One Font are used on the site to simulate the look of the classig table word gue
 <a href="https://fonts.google.com/specimen/Roboto?query=roboto">Roboto</a>  -- Used for all word tiles and game displays.
 
 ![Montserrat Font Example](assets/docs/font_example.png)
-
-
 
 <p align="right">(<a href="#contents">back to top</a>)</p>
 
@@ -141,45 +147,39 @@ Once the user gueses teh word correctly, or has run out of moves, a popup will d
 
 The home page serves as the landing page and aims to impress the visitor with a striking studio portrait image that fills the screen on a minimal interface. The bold white text instantly informs the visitor what the purpose of the site is.
 
-![Home page image](assets/readme-images/screenshot-home.jpg)
+![Landing Page image](assets/docs/screenshot-home.jpg)
 
-The navigation bar and footer are fixed to keep the site controls always visible. 
 
-A single white centered arrow invites the user to scroll down to view the next section - in this case the about summary of the photographer.
 
 #### The Game Area
 
-![About Page image](assets/readme-images/screenshot-about.jpg)
+![Game Area](assets/docs/screenshot-gamearea.jpg)
 
-The about section shows a self portrait of the Photographer and his welcome text to invite you in and share his passion. The text dynamically adjusts around the circular photo on larger screens.
+
 
 <p align="right">(<a href="#contents">back to top</a>)</p>
 
 #### Gameplay
 
-![About Page image](assets/readme-images/screenshot-about.jpg)
+![Gameplay](assets/docs/screenshot-gameplay.jpg)
 
-The about section shows a self portrait of the Photographer and his welcome text to invite you in and share his passion. The text dynamically adjusts around the circular photo on larger screens.
+
 
 <p align="right">(<a href="#contents">back to top</a>)</p>
 
 #### In Game Popup Windows
 
-The gallery page is designed to put the pictures first on a clean well ordered canvas. Only minimal margins are used to allow maximum content. The columns dynamically adjust using HTML flex properties to adjust to all screen sizes. For phone displays only a single column is used with each picture taking up the full width. 
+![Popups - info](assets/docs/screenshot-popup1.jpg)
+![Popups - level](assets/docs/screenshot-popup2.jpg)
+![Popups - win](assets/docs/screenshot-popup3.jpg)
+![Popups - lose](assets/docs/screenshot-popup4.jpg)
 
-A simple white border is used as a mouse over effect to highlight a specific picture the user is interested in.
-
-![Gallery Page](assets/readme-images/screenshot-gallery.jpg)
 
 #### The Win / Lose User feedback
 
-This page uses a marquee effect of vertically scrolling text to showcase previous customers feedback. The text is scolled in a simple transparent frame that dynamically resizes for screen realestate.
-
-![Testimonials Page Image](assets/readme-images/screenshot-testimonials.jpg)
+![Testimonials Page Image](assets/docs/screenshot-testimonials.jpg)
 
 <p align="right">(<a href="#contents">back to top</a>)</p>
-
-
 
 #### Future Implementations
 
@@ -203,11 +203,11 @@ I have been mindful during coding to ensure that the website is as accessible fr
 
 * Using semantic HTML.
 * Using a hover state on all buttons on the site to make it clear to the user if they are hovering over a button.
-* Choosing a sans serif font for the site - these fonts are suitable for people with dyslexia.
+* Choosing a sans serif font for the site - txshese fonts are suitable for people with dyslexia.
 * Ensuring that there is a sufficient colour contrast throughout the site.
 * Using detailed alt descriptions of all images and adding aria-labels for navigational elements where neccessary.
 
-![Contrast Button](assets/readme-images/button-hover.gif)*
+![Contrast Button](assets/docs/button-hover.gif)*
 
 ## Technologies Used
 
@@ -247,12 +247,12 @@ HTML, CSS only.
 
 ### Deployment
 
-The site is deployed using GitHub pages - [William Cooke Photography](https://a-hoenig.github.io/Project-One/index.html).
+The site is deployed using GitHub pages - [WordDash](https://a-hoenig.github.io/WordDash/).
 
 To deploy the site using GitHub pages:
 
 1. Login (or signup) to Github.
-2. Go to the repository for this project, [A-Hoenig/Project-One](https://github.com/A-Hoenig/Project-One).
+2. Go to the repository for this project, [A-Hoenig/WordDash](https://github.com/A-Hoenig/WordDash).
 3. Click the settings button.
 4. Select pages in the left hand navigation menu.
 5. From the source dropdown select main branch and press save.
@@ -265,7 +265,7 @@ To deploy the site using GitHub pages:
 To fork the repository:
 
 1. Log in (or sign up) to Github.
-2. Go to the repository for this project, [A-Hoenig/Project-One](https://github.com/A-Hoenig/Project-One)
+2. Go to the repository for this project, [A-Hoenig/WordDash](https://github.com/A-Hoenig/WordDash)
 3. Click the Fork button in the top right corner.
 
 #### How to Clone
@@ -273,7 +273,7 @@ To fork the repository:
 To clone the repository:
 
 1. Log in (or sign up) to GitHub.
-2. Go to the repository for this project, [A-Hoenig/Project-One](https://github.com/A-Hoenig/Project-One)
+2. Go to the repository for this project, [A-Hoenig/WordDash](https://github.com/A-Hoenig/WordDash)
 3. Click on the code button, select whether you would like to clone with HTTPS, SSH or GitHub CLI and copy the link shown.
 4. Open the terminal in your code editor and change the current working directory to the location you want to use for the cloned directory.
 5. Type 'git clone' into the terminal and then paste the link you copied in step 3. Press enter.
@@ -292,7 +292,7 @@ To clone the repository:
 
   a single parse error is returned that could not be resolved. Research into the correct syntax of the circle() property (used to align the text around the circular image in the about section) indicates the correct use of the property. Nevertheless, the instruction works as intended.
 
-  ![CSS Validator Parse Error](assets/readme-images/css-error.png)
+  ![CSS Validator Parse Error](assets/docs/css-error.png)
 
 ## Manual Testing
 
@@ -367,13 +367,13 @@ To clone the repository:
 ### Responsiveness
 
 tested manually as well as with Am I Responsive Website
-![Am I responsive](assets/readme-images/am-i-res1.jpg)
-![Am I responsive](assets/readme-images/am-i-res2.jpg)
+![Am I responsive](assets/docs/am-i-res1.jpg)
+![Am I responsive](assets/docs/am-i-res2.jpg)
 
 <p align="right">(<a href="#contents">back to top</a>)</p>
 
-![Am I responsive](assets/readme-images/am-i-res3.jpg)
-![Am I responsive](assets/readme-images/am-i-res4.jpg)
+![Am I responsive](assets/docs/am-i-res3.jpg)
+![Am I responsive](assets/docs/am-i-res4.jpg)
 
 <p align="right">(<a href="#contents">back to top</a>)</p>
 
@@ -382,7 +382,7 @@ tested manually as well as with Am I Responsive Website
 
 An accessibility score of 100 was achieved when anaylsing the site using Google Chrome Dev Tools Lighthouse.
 
-![Chrome Lighthouse Results](assets/readme-images/lighthouse-result.png)
+![Chrome Lighthouse Results](assets/docs/lighthouse-result.png)
 
 <p align="right">(<a href="#contents">back to top</a>)</p>
 
@@ -392,12 +392,12 @@ An accessibility score of 100 was achieved when anaylsing the site using Google 
 
 The site was tested on three most popular browsers for functionality:
 
-![Most Popular Browsers](assets/readme-images/popular-browsers.png)
+![Most Popular Browsers](assets/docs/popular-browsers.png)
 
 The only issue regarding browser support was found with safari. On both desktop and mobile versions of Safari, the marquee scrolling feature used in the testimonials page is a little rough and does not scroll smooth. On all other broswers, the feature rendered with no issues.
 
  <pre>|       SAFARI        |         CHROME         |          EDGE           |</pre>
-![Safari rough scroll](assets/readme-images/scroll.gif)
+![Safari rough scroll](assets/docs/scroll.gif)
 
 
 ### Known / Fixed Bugs
