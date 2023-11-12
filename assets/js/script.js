@@ -4,6 +4,9 @@ const words = ["bronc", "cites", "cilia", "burgs", "lilts", "floor", "trips", "s
 // ########################### setup eventlisteners ###################################
 // ####################################################################################
 
+document.getElementById('win-restart').addEventListener('click', playAgain);
+document.getElementById('lose-restart').addEventListener('click', playAgain);
+document.getElementById('level-easy').addEventListener('click', easy);
 document.getElementById('level-easy').addEventListener('click', easy);
 document.getElementById('level-normal').addEventListener('click', normal);
 document.getElementById('level-master').addEventListener('click', expert);
@@ -240,6 +243,12 @@ function updateUsedLetters(userguess) {
 function showInstructions() {
     var i = document.getElementById("popup-info");
     i.style.visibility = i.style.visibility === 'hidden' ? '' : 'hidden';
+}
+
+function playAgain () {
+   
+    window.location.reload(); // reload page to start new game
+    showInstructions(); //turn off default info screen when play new game
 }
 /* current bugs */
 
