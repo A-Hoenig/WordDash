@@ -28,18 +28,18 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 This project was limited to building a fuctional interactive website using only HTML, CSS and JavaScript.
-The presented site implements a simple word guessing game in whiche the user is asked to guess a 5 letter word.
+The presented site implements a simple word guessing game in which the user is asked to guess a 5 letter word.
 The game area is dynamically built using javascript to adjust how many guesses / rows are shown based on the selected level.
 The user recieves feedback on the guess to see if a letter was correct, or correct but in the wrong position.
 
-To ensure the variables required to track game progress are always avaiable, the game is presented on a single page using hidden <divs> that can be displayed as in game popups to give the user feedback. This eliminates the need for a back end to store game information across multiple site pages.
+To ensure the variables required to track game progress are always avaiable, the game is presented on a single page using hidden 'divs' that can be displayed as in game popups to give the user feedback. This eliminates the need for a back end or cookies to store game information across multiple site pages.
 
 Implemented popups are:
 <ol>
   <li>Info page / Landing page : shown on website load and explains the game. Also shown if user taps the 'i' icon in top right corner</li>
-  <li>Level selection Popup : 2 buttons to allow EASY, NORMAL or MASTER level selection</li>
+  <li>Level selection Popup : 3 buttons to allow EASY, NORMAL or MASTER level selection</li>
   <li>Win pop up : congratulates the player for guessing correctly</li>
-  <li>Lose pop up : show game over graphic and displays the correct answer</li>
+  <li>Lose pop up : shows game over graphic and displays the correct answer</li>
 </ol>
 
 ### Built With
@@ -68,26 +68,28 @@ Guesses are checked for validity at entry (5 valid alphabetic letters) - wrong i
 
 once a valid guess is accepted it is added to the board. Tiles are colored to indicate correct letters for both position and the letter itself.
 
-The feedback lets the user make an infomed further guess to narrow down the correct word.
+The feedback lets the user make an informed further guess to narrow down the correct word.
 
 Previously played letters are displayed in a list above the input field to help with the guess, especially on smaller screens where not all rows might be visible due to the oncreen keyboard.
 
 once the answer is found, or the maximum guesses is reached, the user recieves the appropriate feedback.
 
-To restart the game, simply reload the page.
+To restart the game, simply reload the page or tap on play again.
 
 ## Design
+
+The overall design leans heavily on current popular styles which inlcudes bright complementary colors, cartoon icons and pictograms, rounded corners and simple overall layouts. This was the objective in the overall design.
 
 ### Colour Scheme
 
 The color scheme was chose to replicate the feel of a table top word game such as scrabble. The background shows a similar theme.
 The main color used to achieve this was the system color :moccasin (hex code: #F7E6C0, or RGB(247, 230, 192))
-This main color is complemented buy brown or black borders. 
-Selectable items on mouse over are show with a green background and white text.
+This main color is complemented by brown or black borders. 
+Selectable items on mouse over are shown with a green background and white text.
 
 ### Typography
 
-One Font are used on the site to simulate the look of the classig table word guessing game Scrabble. 
+One Font is used on the site to simulate the look of the classig table word guessing game Scrabble. To achive the look, a font weight of 900 is needed.
 
 <a href="https://fonts.google.com/specimen/Roboto?query=roboto">Roboto</a>  -- Used for all word tiles and game displays.
 
@@ -113,9 +115,9 @@ A footer where the user can enter a word, click a submit button (enter will also
 
 <p align="right">(<a href="#contents">back to top</a>)</p>
 
-each guess will be verified to contain only 5 letters (input field will not accept more than 5). Also, the guess will be checked for only valid letters lower or uppercase
+each guess will be verified to contain only 5 letters (input field will not accept more than 5). Also, the guess will be checked for only valid letters, lower or uppercase
 Once a valid word is submitted, it is added to the grid.
-Colors give feedback on the gues:
+Colors give feedback on the guess:
 
 * no color  : That letter is not contained in the word
 * orange : the letter is in the answer, but not at that position
@@ -123,8 +125,8 @@ Colors give feedback on the gues:
 
 ![First Guess + Feedback](assets/docs/wireframe_3.jpg)
 
-using the clues the the user informs their next guess to try and narrow down the correct word.
-any letters can be guessed, but the number of guesses available limits how many clues can be gained from simply typing the alphabet.
+using the clues, the user informs their next guess to try and narrow down the correct word.
+Any letters can be guessed, but the number of guesses available limits how many clues can be gained from simply typing the alphabet.
 A future update could include the additional difficulty level of only allowing valid 5 letter words. The number of guesses would have to be adjusted to ensure realistic chance of success.
 ![Second Guess + Feedback](assets/docs/wireframe_4.jpg)
 
@@ -132,20 +134,22 @@ A future update could include the additional difficulty level of only allowing v
 
 ![Third Guess + feedback](assets/docs/wireframe_5.jpg)
 
-
-Once the user gueses the word correctly, or has run out of moves, a popup will display a congratulatory message or indicate game over and reveal the answer.
+Once the user guesses the word correctly, or has run out of moves, a popup will display a congratulatory message or indicate game over and reveal the answer.
 ![Game Win Popup (or Lose)](assets/docs/wireframe_6.jpg)
 
 <p align="right">(<a href="#contents">back to top</a>)</p>
 
 #### The Landing Page
 
-The home page serves as the landing page and aims to impress the visitor with a striking studio portrait image that fills the screen on a minimal interface. The bold white text instantly informs the visitor what the purpose of the site is.
+The home page serves as the landing page and immediately presents the user with the quick game instructions. after tapping to acknowledge, the user can then select the level and very quickly start a game.
 
 ![Landing Page image](assets/docs/screenshot1.jpg)
 ![Level Select image](assets/docs/screenshot2.jpg)
 
 #### The Game Area
+
+The game area displays a header with an info button, a main scrollable word grid that is generated dynamically based on how many turns the user may have (difficulty level)
+the words are input in the footer which contains an input field, a submit button and a feedback section that displays all the letters already played in alphabetical order.
 
 ![Game Area](assets/docs/screenshot3.jpg)
 
@@ -166,7 +170,7 @@ The home page serves as the landing page and aims to impress the visitor with a 
 
 #### Future Implementations
 
-Future developement of the game could include:
+Future development of the game could include:
 
 1. Running statistics of games played and a points system rewarding the earliest correct guess
 2. Optional checkbox to force the user to only post valid 5 letter words

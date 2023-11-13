@@ -275,7 +275,6 @@ header {
     justify-content: center;
     flex-wrap: wrap;
     z-index: 99;
-    /* visibility: hidden; */
 }
 
 /* size popup picture correctly */
