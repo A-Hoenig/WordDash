@@ -8,7 +8,10 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest" crossorigin="use-credentials">
+    <link rel="manifest" href="/site.webmanifest">
+
+
+    <!-- crossorigin="use-credentials"> -->
 
     <link rel="stylesheet" href="assets/css/style.css">
     <title>Document</title>
@@ -26,17 +29,16 @@
             </span>
         </div>
     </header>
-    
+
     <div id="popup-info" class="popup-message">
         <p>Try to guess the correct 5 letter word.
             <br>
-        Yellow tile = correct letter, wrong position.
-        <br>
-        Green tile = a correct match!
-        <br>
-        Can you guess it before your moves run out?
-        <br>
-        Reload the page to start a new game</p>
+            Yellow tile = correct letter, wrong position.
+            <br>
+            Green tile = a correct match!
+            <br>
+            Can you guess it before your moves run out?
+        </p>
 
         <img id="picture-info" width="692" height="134" src="./assets/images/user-guess.png" alt="example guess row">
     </div>
@@ -79,7 +81,7 @@
             <div>
                 <input type="button" id="win-restart" value="PLAY AGAIN" class="level-button restart-button">
             </div>
-            
+
             <p>YOU WON!!</p>
             <p>CONGRATULATIONS!</p>
             <img id="picture-medal" width="150" height="150" src="./assets/images/reshot-icon-winner.svg"
@@ -93,7 +95,7 @@
                 <div class="letter-box" id="letter-94">R</div>
             </div>
 
-            
+
 
         </div>
 
@@ -104,9 +106,9 @@
             <p id="answer-word"></p>
             <img id="picture-sad" width="200" height="200" src="./assets/images/reshot-icon-sad.svg"
                 alt="sad person crying">
-                <div>
-                    <input type="button" id="lose-restart" value="PLAY AGAIN" class="level-button restart-button">
-                </div>
+            <div>
+                <input type="button" id="lose-restart" value="PLAY AGAIN" class="level-button restart-button">
+            </div>
         </div>
 
         <div id="turnNumber">0</div>
