@@ -1,7 +1,7 @@
-# WordDash Browser Word Guessing Game
+# WordDash Browser Guessing Game
 
 <a href="https://github.com/A-Hoenig/WordDash">
-    <img src="android-chrome-512x512.png" alt="Logo" width="80" height="80">
+    <img src="./assets/images/favicon/android-icon-192x192.png" alt="Logo" width="80" height="80">
   </a>
 
 ![Summary of Site on different screens](assets/docs/app_screenshot.png)
