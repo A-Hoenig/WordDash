@@ -31,7 +31,7 @@ header {
     margin: auto;
 }
 
-/* spread title, level and info buttin dynamically */
+/* spread title, level and info button dynamically */
 #header-top-row {
     display: flex;
     flex-direction: row;
@@ -39,12 +39,14 @@ header {
     justify-self: center;
 }
 
-#info-icon{
+#info-icon {
     font-size: 1.2em;
 }
+
 .popup-text {
     margin: 15px;
 }
+
 #selected-level {
     font-weight: 900;
     align-self: center;
@@ -61,7 +63,7 @@ header {
 /* fix size of word entry and submit button */
 #entry-panel {
     max-width: 350px;
-    margin: auto;  
+    margin: auto;
 }
 
 /* place inputs dynamically in a grid and space correctly */
@@ -73,7 +75,7 @@ header {
 
 /* style list of used letters */
 #guessed-letters {
-   text-transform: uppercase;
+    text-transform: uppercase;
     font-weight: 900;
     min-height: 44px;
     padding-left: 10px;
@@ -88,7 +90,7 @@ header {
     text-align: center;
 }
 
-/* stuyle word input box */
+/* style word input box */
 #user-guess {
     display: block;
     background: moccasin;
@@ -101,7 +103,6 @@ header {
     box-shadow: inset gray 0px 0px 60px -12px;
     text-transform: uppercase;
     width: 100%;
-    
 }
 
 #user-guess::placeholder {
@@ -133,19 +134,18 @@ header {
 /* place word area below inputs */
 #word-area {
     margin-top: 70px;
-  display: block;
- 
+    display: block;
 }
 
 /* positioning of one row of letters */
 .guess-row {
     display: flex;
     justify-content: center;
-
 }
 
+/* make guess rows scroll behind header */
 #guess-rows {
-   z-index: -1;
+    z-index: -1;
 }
 
 /* standard style of a letter box/tile */
@@ -160,7 +160,6 @@ header {
     font-weight: 900;
     font-size: 3em;
     border-radius: 10px;
-    aspect-ratio: 1 / 1;
 }
 
 /* class to highlight which box contains a letter in correct position */
@@ -173,6 +172,7 @@ header {
     background: rgb(255, 200, 0.5);
 }
 
+/* style footer */
 #footer {
     background-color: rgba(255, 227, 179, 0.8);
     border: 5px solid brown;
@@ -185,12 +185,12 @@ header {
     margin: auto;
 }
 
-/* position popup boxes in middle fo screen */
+/* style, and position popup boxes in middle fo screen */
 .popup-message {
     margin: auto;
     position: fixed;
     top: 50%;
-    left: 50%; 
+    left: 50%;
     transform: translate(-50%, -50%);
     width: 90%;
     min-width: 345px;
@@ -200,7 +200,7 @@ header {
     border-radius: 10px;
     text-align: center;
     padding-top: 20px;
-    background:rgba(251, 229, 187, 1);
+    background: rgba(251, 229, 187, 1);
     font-weight: 900;
     font-size: 1.5em;
     text-transform: uppercase;
@@ -232,7 +232,7 @@ header {
     font-size: 1.5em;
     background: lightgreen;
     top: 50%;
-    left: 50%; 
+    left: 50%;
     transform: translate(-50%, -50%);
 }
 
@@ -245,11 +245,11 @@ header {
     margin-top: 20px;
 }
 
-/* style answer word in popup*/
+/* style answer word in popup */
 #guess-answer div {
     font-size: 2em;
     background: rgba(0, 200, 0, 0.5);
-   margin: auto;
+    margin: auto;
 }
 
 /* style of losing popup - default hidden */
@@ -257,14 +257,14 @@ header {
     display: none;
     background: orange;
     top: 50%;
-    left: 50%; 
+    left: 50%;
     transform: translate(-50%, -50%);
 }
 
 /* style of instructions popup - default hidden */
 #popup-info {
     display: flex;
-    background:rgba(251, 229, 187, 1);
+    background: rgba(251, 229, 187, 1);
     height: 360px;
     font-size: 1em;
     text-transform: unset;
@@ -277,16 +277,17 @@ header {
     /* visibility: hidden; */
 }
 
-/* space popup picture correctly*/
+/* space popup picture correctly */
 #popup-info #picture-info {
     justify-content: center;
     width: 100%;
     min-width: 330px;
-    height:75px;
+    height: 75px;
 }
 
 .hide {
-    display: none; /* class to hide semantic elements not needed*/
+    display: none;
+    /* class to hide semantic elements not needed*/
 }
 
 /* increase size of solution word */
@@ -295,18 +296,11 @@ header {
 }
 
 #turnNumber {
-    display: none; /* hide DOM turn counter */
+    display: none;
+    /* hide DOM turn counter */
 }
 
 #maxTurns {
-    display: none; /* hide DOM max turns */
-}
-
-
-/* MEDIA QUERIES FOR LANDSCAPE AND LARGER SCREENS */
-
-@media screen and (min-width: 712px) {
-    
-
-
+    display: none;
+    /* hide DOM max turns */
 }
