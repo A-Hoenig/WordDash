@@ -50,7 +50,7 @@ function startGame(level) {
     document.getElementById('answer-word').innerHTML = words[Math.floor(Math.random() * words.length)]; // get random word form array and add it to the hidden solution element
 
     console.log("start " + level + " game");
-    console.log('answer: ' + document.getElementById('answer-word').textContent); // can be deleted after error checking
+    // console.log('answer: ' + document.getElementById('answer-word').textContent); // can be deleted after error checking
     console.log("------------------------------"); // can be deleted after error checking
 
     // set up how many turns each type of level gets
@@ -108,8 +108,7 @@ function processTurn() {
     let regex = /^[a-zA-Z]+$/; //allowed letters for answer
 
     console.log('turn: ' + (turnNumber + 1) + " out of " + (maxTurns + 1)); // can be deleted after error checking
-    console.log('users guess: ' + userguess); // can be deleted after error checking
-
+   
     if (userguess === answer) {
 
         document.getElementById("user-guess").placeholder = "YOU WON!";
@@ -157,9 +156,6 @@ function processTurn() {
  * then resets focus for a new entry
  */
 function addWordToGrid(userguess, row) {
-    console.log("add word to grid: " + userguess + " row: " + row);
-
-
     //loop though child letter elements and add each letterID
     if (userguess === null || row === null) {
         //do nothing
@@ -171,7 +167,6 @@ function addWordToGrid(userguess, row) {
         }
         //scroll to added word for smaller screens with keyboard in view as well
         let scrollDestination = `guess-${row}`;
-        console.log ("scroll to :" + scrollDestination);
         if (scrollDestination === null || scrollDestination === "guess-9") {
             // do nothing in when game is won - can't scroll to popup
         } else {
