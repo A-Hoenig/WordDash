@@ -61,7 +61,6 @@ header {
 /* fix size of word entry and submit button */
 #entry-panel {
     max-width: 350px;
-    position: float;
     margin: auto;  
 }
 
@@ -146,9 +145,7 @@ header {
 }
 
 #guess-rows {
-    position: float;
-
-    z-index: -1;
+   z-index: -1;
 }
 
 /* standard style of a letter box/tile */
@@ -181,7 +178,6 @@ header {
     border: 5px solid brown;
     border-radius: 10px;
     align-self: center;
-    position: float;
     min-width: 345px;
     width: 99%;
     padding: 10px;

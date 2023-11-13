@@ -288,11 +288,7 @@ To clone the repository:
   - No errors were returned when passing through the official [W3C validator](https://validator.w3.org/)
 
 #### CSS
-  - No major errors were found when passing through the official [(Jigsaw) validator](https://jigsaw.w3.org/css-validator/)
-
-  a single parse error is returned that could not be resolved. Research into the correct syntax of the circle() property (used to align the text around the circular image in the about section) indicates the correct use of the property. Nevertheless, the instruction works as intended.
-
-  ![CSS Validator Parse Error](assets/docs/css-error.png)
+  
 
 ## Manual Testing
 
