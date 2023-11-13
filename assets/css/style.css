@@ -280,9 +280,9 @@ header {
 /* space popup picture correctly */
 #popup-info #picture-info {
     justify-content: center;
-    width: 100%;
-    min-width: 330px;
-    height: 75px;
+    /* width: 100%; */
+    min-width: 345px;
+    height: 64px;
 }
 
 .hide {
