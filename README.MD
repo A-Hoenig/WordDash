@@ -1,11 +1,8 @@
 # WordDash Browser Word Guessing Game
 
-
 <a href="https://github.com/A-Hoenig/WordDash">
     <img src="android-chrome-512x512.png" alt="Logo" width="80" height="80">
   </a>
-
-
 
 ![Summary of Site on different screens](assets/docs/app_screenshot.png)
 
@@ -28,16 +25,14 @@
     <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
 
-
-
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 This project was limited to building a fuctional interactive website using only HTML, CSS and JavaScript.
-The presented site implements a simple word guessing game in whiche the user is asekd to guess a 5 letter word.
-The game area is dynamically built using javascript to adjust how many guesses / rows are shown based on the slected level.
-The user recieves feedback on teh guess to see if a letter was correct or correct but in the wrong position.
+The presented site implements a simple word guessing game in whiche the user is asked to guess a 5 letter word.
+The game area is dynamically built using javascript to adjust how many guesses / rows are shown based on the selected level.
+The user recieves feedback on the guess to see if a letter was correct, or correct but in the wrong position.
 
-To maintain information required to track game variables the game is presented on a single page using hidden <divs> that can be displayed as in gaem popups to give the user feedback. This eliminates the need for a back end to store game inomation across multiple site pages.
+To ensure the variables required to track game progress are always avaiable, the game is presented on a single page using hidden <divs> that can be displayed as in game popups to give the user feedback. This eliminates the need for a back end to store game information across multiple site pages.
 
 Implemented popups are:
 <ol>
@@ -147,37 +142,25 @@ Once the user gueses teh word correctly, or has run out of moves, a popup will d
 
 The home page serves as the landing page and aims to impress the visitor with a striking studio portrait image that fills the screen on a minimal interface. The bold white text instantly informs the visitor what the purpose of the site is.
 
-![Landing Page image](assets/docs/screenshot-home.jpg)
-
-
+![Landing Page image](assets/docs/screenshot1.jpg)
+![Level Select image](assets/docs/screenshot2.jpg)
 
 #### The Game Area
 
-![Game Area](assets/docs/screenshot-gamearea.jpg)
-
-
+![Game Area](assets/docs/screenshot3.jpg)
 
 <p align="right">(<a href="#contents">back to top</a>)</p>
 
 #### Gameplay
 
-![Gameplay](assets/docs/screenshot-gameplay.jpg)
-
-
+![Gameplay](assets/docs/screenscroll.gif)
 
 <p align="right">(<a href="#contents">back to top</a>)</p>
 
-#### In Game Popup Windows
+#### Feedback Popup Windows
 
-![Popups - info](assets/docs/screenshot-popup1.jpg)
-![Popups - level](assets/docs/screenshot-popup2.jpg)
-![Popups - win](assets/docs/screenshot-popup3.jpg)
-![Popups - lose](assets/docs/screenshot-popup4.jpg)
-
-
-#### The Win / Lose User feedback
-
-![Testimonials Page Image](assets/docs/screenshot-testimonials.jpg)
+![Popups - win](assets/docs/screenshot4.jpg)
+![Popups - lose](assets/docs/screenshot5.jpg)
 
 <p align="right">(<a href="#contents">back to top</a>)</p>
 
@@ -188,7 +171,7 @@ Future developement of the game could include:
 1. Running statistics of games played and a points system rewarding the earliest correct guess
 2. Optional checkbox to force the user to only post valid 5 letter words
 3. Add graphics animations to add a professional look
-4. create an in game onscreen keyboard to avoid the specific ios onscreen keyboard issue. This will eliminate the need fo the user to continually scroll bewteen the feeback word on the grid and the text ipnut field. The keyboard can then also color keys to indicate used letters.
+4. create an in game onscreen keyboard to avoid the specific ios onscreen keyboard issue. This will eliminate the need fo the user to continually scroll between the feeback word on the grid and the text input field. The keyboard can then also color keys to indicate used letters.
 5. Additionally: option for 6 letter words
 6. Add backend implementation to keep the wordlist off site (on a server). the app could then only fetch a single random word from the server, rather than having to load the entire list of words on page load, improving performance.
 7. online challenges to friends and random users (first to finish wins)
@@ -289,6 +272,12 @@ To clone the repository:
 
 #### CSS
   
+  - No errors were returned when passing CSS code through : [CSS Validator](https://jigsaw.w3.org/css-validator/)
+
+#### JS
+
+  - Validating JS code only produces warnings about newer methods that might no longer be supported my older browsers 
+  - specifically const vs let variable declaration, temperate literals and arrow function syntax.
 
 ## Manual Testing
 
@@ -298,65 +287,24 @@ To clone the repository:
 | :-------------- | :------ | :------ | :------ |
 |**GENERAL TESTS** |
 |Layout|Layout dynamically changes based on screen size|tested on iphone and all desktop browsers|all elements shift and resize as expected|
-|Responsiveness|elements resize when browser window changes|resizing tested on selected browsers|dynamic elements and media queries work as expected|
-|Internal Links|BurgerMenu|On small screens burger menu click displays nav bar|nav bar shos up and links work|
-|Internal Links|NAV bar elements link to correct page|checked on selected browsers and iPhone|All links work and point to correct page|
-|Mouse Over events|NAV elements highlight when user hovers on them|tested on desktop browsers|Works as expected|
-|Nav Bar link highlight|correct page (Home) is highlighted|checked on deployed site|displayed correctly|
-|Nav bar burger icon|nav bar is displayed below burger icon|tested on all browsers|works as expected|
+
 |**PAGE SPECIFIC TESTS** |
 |About section|dynamic resizing of intro text on large screens | tested on selected browsers | works as expected |
 
-### GALLERY PAGE
+### GAMEPLAY
+
+| Feature        | Expect | Action | Result |
+| :-------------- | :------ | :------ | :------ |
+|** GAMEPLAY ** |
+|Layout|Layout dynamically changes based on screen size|tested on iphone and all desktop browsers|all elements shift and resize as expected|
+
+### POPUPS
 
 | Feature        | Expect | Action | Result |
 | :-------------- | :------ | :------ | :------ |
 |**GENERAL TESTS** |
 |Layout|Layout dynamically changes based on screen size|tested on iphone and all desktop browsers|all elements shift and resize as expected|
-|Responsiveness|elements resize when browser window changes|resizing tested on selected browsers|dynamic elements and media queries work as expected|
-|Internal Links|BurgerMenu|On small screens burger manu click displays nav bar|nav bar shos up and links work|
-|Internal Links|NAV bar elements link to correct page|checked on selected browsers and iPhone|All links work and point to correct page|
-|Mouse Over events|NAV elements highlight when user hovers on them|tested on desktop browsers|Works as expected|
-|Nav Bar link highlight|correct page (Gallery) is highlighted|checked on deployed site|displayed correctly|
-|Nav bar burger icon|nav bar is displayed below burger icon|tested on all browsers|works as expected|
-|**PAGE SPECIFIC TESTS** |
-|Aspect ratios|Photos Display correctly|tested on selected browsers|photos look good even when resizing window|
-|Gallery Layout|layout correctly adjusts|tested on all window sizes on 6k screen|works as intended (large screen not enough photos to fill page|
-|Picture Highlighting|mouse over highlights picture|testes on desktop browsers|works as expected|
-|Photo centering|cropped pictures centered|check no photos are left or right justified|all look good|
 
-### TESTIMONIALS PAGE
-
-| Feature        | Expect | Action | Result |
-| :-------------- | :------ | :------ | :------ |
-|**GENERAL TESTS** |
-|Layout|Layout dynamically changes based on screen size|tested on iphone and all desktop browsers|all elements shift and resize as expected|
-|Responsiveness|elements resize when browser window changes|resizing tested on selected browsers|dynamic elements and media queries work as expected|
-|Internal Links|BurgerMenu|On small screens burger menu click displays nav bar|nav bar shos up and links work|
-|Internal Links|NAV bar elements link to correct page|checked on selected browsers and iPhone|All links work and point to correct page|
-|Mouse Over events|NAV elements highlight when user hovers on them|tested on desktop browsers|Works as expected|
-|Nav Bar link highlight|correct page (Testimonials) is highlighted|checked on deployed site|displayed correctly|
-|Nav bar burger icon|nav bar is displayed below burger icon|tested on all browsers|works as expected|
-|**PAGE SPECIFIC TESTS** |
-|marquee testimonials|testimonial page displays all feedback elements as vertical scrolling text|tested on all browsers|mostly works, Safari scrolling is rough|
-|marquee testimonials|testimonial section resizes with window|tested on all browsers|works as expected dynamically|
-
-### CONTACT PAGE PAGE
-
-| Feature        | Expect | Action | Result |
-| :-------------- | :------ | :------ | :------ |
-|**GENERAL TESTS** |
-|Layout|Layout dynamically changes based on screen size|tested on iphone and all desktop browsers|all elements shift and resize as expected|
-|Responsiveness|elements resize when browser window changes|resizing tested on selected browsers|dynamic elements and media queries work as expected|
-|Internal Links|BurgerMenu|On small screens burger menu click displays nav bar|nav bar shos up and links work|
-|Internal Links|NAV bar elements link to correct page|checked on selected browsers and iPhone|All links work and point to correct page|
-|Mouse Over events|NAV elements highlight when user hovers on them|tested on desktop browsers|Works as expected|
-|Nav Bar link highlight|off as contact page has own link and is not displayed|checked on deployed site|displayed correctly|
-|Nav bar burger icon|nav bar is displayed below burger icon|tested on all browsers|works as expected|
-|**PAGE SPECIFIC TESTS** |
-|user form submittable|user can send request data and sees what was recieved server side|tested with Chrome|works as expected|
-|user form text entry validation|required text entry and data format is set|leaving blank or not entering email is flagged|works as expected|
-|user form formatting|form resizes dynamically to left on large screens|ltested on all browsers|works as expected|
 
 <p align="right">(<a href="#contents">back to top</a>)</p>
 
@@ -366,10 +314,7 @@ tested manually as well as with Am I Responsive Website
 ![Am I responsive](assets/docs/am-i-res1.jpg)
 ![Am I responsive](assets/docs/am-i-res2.jpg)
 
-<p align="right">(<a href="#contents">back to top</a>)</p>
 
-![Am I responsive](assets/docs/am-i-res3.jpg)
-![Am I responsive](assets/docs/am-i-res4.jpg)
 
 <p align="right">(<a href="#contents">back to top</a>)</p>
 
