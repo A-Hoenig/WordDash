@@ -38,8 +38,8 @@ Implemented popups are:
 <ol>
   <li>Info page / Landing page : shown on website load and explains the game. Also shown if user taps the 'i' icon in top right corner</li>
   <li>Level selection Popup : 2 buttons to allow EASY, NORMAL or MASTER level selection</li>
-  <li>Win pop up : congratulates teh player for guessing correctly</li>
-  <li>Lose pop up : show game over graphic and displays teh correct answer</li>
+  <li>Win pop up : congratulates the player for guessing correctly</li>
+  <li>Lose pop up : show game over graphic and displays the correct answer</li>
 </ol>
 
 ### Built With
@@ -133,7 +133,7 @@ A future update could include the additional difficulty level of only allowing v
 ![Third Guess + feedback](assets/docs/wireframe_5.jpg)
 
 
-Once the user gueses teh word correctly, or has run out of moves, a popup will display a congratulatory message or indicate game over and reveal the answer.
+Once the user gueses the word correctly, or has run out of moves, a popup will display a congratulatory message or indicate game over and reveal the answer.
 ![Game Win Popup (or Lose)](assets/docs/wireframe_6.jpg)
 
 <p align="right">(<a href="#contents">back to top</a>)</p>
@@ -153,7 +153,7 @@ The home page serves as the landing page and aims to impress the visitor with a 
 
 #### Gameplay
 
-![Gameplay](assets/docs/screenscroll.gif)
+<img src="assets/docs/screenscroll.gif" alt="gameplay-animation" width="200"/>
 
 <p align="right">(<a href="#contents">back to top</a>)</p>
 
@@ -190,7 +190,7 @@ I have been mindful during coding to ensure that the website is as accessible fr
 * Ensuring that there is a sufficient colour contrast throughout the site.
 * Using detailed alt descriptions of all images and adding aria-labels for navigational elements where neccessary.
 
-![Button Highlights](assets/docs/button_hover.gif)
+<img src="assets/docs/button_hover.gif" alt="button-hover-animation" width="400"/>
 
 ## Technologies Used
 
@@ -219,8 +219,6 @@ HTML, CSS only.
 * [Webpage Spell-Check](https://chrome.google.com/webstore/detail/webpage-spell-check/mgdhaoimpabdhmacaclbbjddhngchjik/related) - a google chrome extension that allows you to spell check your webpage. Used to check the site and the readme for spelling errors.
 
 * [ChatGPT](https://chat.openai.com/auth/login) - AI Large Language Model used to generate fake customer testimonials and photographer bio.
-
-* [FakeNameGenerator](https://www.fakenamegenerator.com/) - Used to generate random profile of a fake person.
 
 * [MOV to GIF](https://cloudconvert.com/mov-to-gif) - used to generate gifs from screen recordings.
 
@@ -279,6 +277,16 @@ To clone the repository:
   - Validating JS code only produces warnings about newer methods that might no longer be supported my older browsers 
   - specifically const vs let variable declaration, temperate literals and arrow function syntax.
 
+#### Chrome Lighthouse Analysis (mobile selected)
+Lighthouse test on the deployed site returned 4 x 100% score for 
+
+* Performance
+* Accessibility
+* Best Practices
+* SEO (search engine optimization)
+
+<img src="./assets/docs/site-performance.png" alt="lighthouse-results" width="400"/>
+
 ## Manual Testing
 
 ### HOME PAGE
@@ -286,7 +294,15 @@ To clone the repository:
 | Feature        | Expect | Action | Result |
 | :-------------- | :------ | :------ | :------ |
 |**GENERAL TESTS** |
-|Layout|Layout dynamically changes based on screen size|tested on iphone and all desktop browsers|all elements shift and resize as expected|
+|Initialization|App selects a random word from the given list|initially output to console|works as expected. Console output removed to prevent cheating|
+|Responsiveness|Layout dynamically changes based on screen size|tested on iphone and all desktop browsers|all elements shift and resize as expected|
+|||||
+|||||
+|||||
+|||||
+|||||
+|||||
+|||||
 
 |**PAGE SPECIFIC TESTS** |
 |About section|dynamic resizing of intro text on large screens | tested on selected browsers | works as expected |
@@ -310,87 +326,60 @@ To clone the repository:
 
 ### Responsiveness
 
-tested manually as well as with Am I Responsive Website
-![Am I responsive](assets/docs/am-i-res1.jpg)
-![Am I responsive](assets/docs/am-i-res2.jpg)
+tested manually on the listed browsers and on iphones. The game was designed to be fully responsive with dynamic sizing without the need for media queries. It is best played in a small browser window, but will work fine on mobile and tablet devices.
 
 <p align="right">(<a href="#contents">back to top</a>)</p>
 
-### Accessibility
-
-An accessibility score of 100 was achieved when anaylsing the site using Google Chrome Dev Tools Lighthouse.
-
-![Chrome Lighthouse Results](assets/docs/lighthouse-result.png)
-
 <p align="right">(<a href="#contents">back to top</a>)</p>
-
-
 
 ### Browser Compatibility
 
 The site was tested on three most popular browsers for functionality:
 
-![Most Popular Browsers](assets/docs/popular-browsers.png)
+<img src="./assets/docs/popular-browsers.png" alt="popular browsers" width="400"/>
 
-The only issue regarding browser support was found with safari. On both desktop and mobile versions of Safari, the marquee scrolling feature used in the testimonials page is a little rough and does not scroll smooth. On all other broswers, the feature rendered with no issues.
+<pre>|       SAFARI MacOS      |         SAFARI iOS      |        CHROME         |          EDGE           |</pre>
 
- <pre>|       SAFARI        |         CHROME         |          EDGE           |</pre>
-![Safari rough scroll](assets/docs/scroll.gif)
-
+Safari was tested on both desktop and mobile versions.
+In general the game works as intended on all browsers.
+One issue was discovered during development that could not be fully resolved.
+As per the mockups, the original intent was to have the user input fiels as part of a fixed / sticky header and allow the guess rows to scroll underneath. However, on safari mobile phones, once the user clicks to start typing a word, the onscreen keyboard is presented. in safari, once this happens, it overrides the fixed position of the header and scrolles it off the screen, greatly reducing usability. This is a known issue and a direct easy workaround could not be found. As a result, the overall design was change to add the inuot fields to the footer and add a scrolling feature to the current user guess row to allow the user to type, but then also see the word.
+one more involved fix for this would be to remove the need for the onscreen keyboard by providing a built in on screen keyboard that can be fied moved and styled as needed for ease of use.
 
 ### Known / Fixed Bugs
 
-* When expanding the browser window the burger icon jumps imperceptibily whe passing the 768px screen width media query. This is most likely due to the fact that the header element is switched to a different grid spacing and the align-items: center; overrides the burger-label top:; property. -- **SOLVED** by adjusting the percentage sizes of the header grid.
-
-* on the gallery page when displaying a 2 column grid, the flex property aligning the individual photos leaves a blank slot after the 5th photo. (start of a new div) - **SOLVED**
-
-A solution was implemented using flex grow on a single div that automativally arranges the pictures into strechable columns. The page now dynamically adjusts equal sized tiles to fill the screen thus removing the need for media queries and allowing for dynamic columns and rows as needed. (solution found under: <a href="https://blog.logrocket.com/responsive-image-gallery-css-flexbox/">Click here</a> )
-
-
+no major bugs found impacting playability or styling
 
 ## Credits
 
 ### Code Used
 
-* I used the Code Institute - Love Running walkthrough project as the basis for the pop up nav bar.
-* The gallery bug fix was impelementd using this blog post: <a href="https://blog.logrocket.com/responsive-image-gallery-css-flexbox/">How to create a responsive image gallery with CSS flexbox</a> )
 * TheQuizArms Pub Quiz project README was recommended as a baseline for this README. many thanks. <a href="https://github.com/kera-cudmore/TheQuizArms/blob/main/README.md">The Quiz Arms README.md</a>
 
 
 <!-- IMAGE-CREDITS -->
 ## Image Credits
 
-All images are sourced from stock image sites (pexels, unsplash, pixabay) and are license free.
+All graphics are sourced from stock image sites (reshot, pexels) and are license free.
 <br>
-Acknowlegements to the original photographer listed below:
 
 | Image Name    | License | Originator | Link |
 | ------------- | :---: | :--- | :--- |
-| portrait1.jpg | pexels | Ali Pazani | https://www.pexels.com/photo/woman-wearing-orange-sweater-2613260/ |
-| portrait2.jpg | pexels | Ali Pazani | https://www.pexels.com/photo/woman-wearing-brown-fur-beanies-and-white-and-balck-top-2681751/ |
-| portrait3.jpg | pexels | Ali Pazani | https://www.pexels.com/photo/woman-in-grey-long-sleeved-shirt-2787341/ |
-| portrait4.jpg | pexels | Arsham Haghani | https://www.pexels.com/photo/photo-of-woman-closing-her-eyes-3429877/ |
-| portrait5.jpg | pexels | Bruno Salvadori | https://www.pexels.com/photo/light-fashion-person-red-2330169/ |
-| portrait6.jpg | pexels | Collis | https://www.pexels.com/de-de/foto/graustufen-seitenansicht-portratfoto-des-mannes-der-mit-geschlossenen-augen-aufwirft-3031397/ |
-| portrait7.jpg | pexels | Marlon Schmeiski | https://www.pexels.com/photo/woman-standing-next-to-yellow-wall-3839904/ |
-| portrait8.jpg | pexels | George Desipris | https://www.pexels.com/de-de/foto/graustufenfoto-des-mannes-mit-bart-818261/ |
-| portrait9.jpg | pexels | Guilherme Almeida | https://www.pexels.com/de-de/foto/1858175/ |
-| portrait10.jpg | pexels | Gusher Gill | https://www.pexels.com/photo/portrait-of-woman-in-traditional-clothing-and-with-henna-tattoos-18633023/ |
-| portrait11.jpg | pexels | Hywel Jones | https://www.pexels.com/photo/attractive-woman-wearing-white-top-2744193/ |
-| portrait12.jpg | pexels | Italo Melo | https://www.pexels.com/de-de/foto/portratfoto-des-lachelnden-mannes-mit-gekreuzten-armen-die-vor-der-weissen-wand-stehen-2379004/ |
-| portrait13.jpg | pexels | Arsham Haghani | https://www.pexels.com/photo/photo-of-woman-with-short-hair-3445218/ |
-| portrait14.jpg | pexels | Moose Photos | https://www.pexels.com/photo/woman-wearing-pink-collared-half-sleeved-top-1036623/ |
-| portrait15.jpg | pexels | Olena Bohovyk | https://www.pexels.com/photo/grayscale-photo-of-man-holding-round-mirror-3635872/ |
-| portrait16.jpg | pexels | Pixabay | https://www.pexels.com/de-de/foto/graustufenfoto-der-frau-im-schwarzen-neckholder-kleid-mit-u-ausschnitt-60712/ |
-| portrait17.jpg | pexels | Samad Ismayilov | https://www.pexels.com/photo/woman-wearing-black-scoop-neck-top-735552/ |
-| portrait18.jpg | pexels | Spencer Selover | https://www.pexels.com/de-de/foto/mann-der-t-shirt-mit-der-rechten-hand-nahe-wange-tragt-428333/ |
-| portrait19.jpg | pexels |  Gustavo Santana| https://www.pexels.com/de-de/foto/mann-mit-zigarette-im-mund-1933873/ |
-| portrait20.jpg | pexels | Vitaly Gorbachev | https://www.pexels.com/zh-tw/photo/18652728/ |
-| photographer.jpg | pexels | Rockerzzz | https://www.pexels.com/de-de/foto/mann-fotografiert-vor-camea-1265718/ |
-| testimonials-bg | unsplash | Arsham Haghani | https://unsplash.com/photos/woman-in-black-v-neck-shirt-Ef3AOkt6hHg |
-| contact-bg | pixabay | Krivitskiy | https://pixabay.com/de/photos/portrait-m%C3%A4dchen-studio-weiblich-4181643/ |
+|background.webp | pexels | Pixabay | https://www.pexels.com/de-de/foto/brown-wooden-scrabble-lot-278881/ |
+|reshot-icon-sad.svg|reshot|n/a|https://www.reshot.com/free-svg-icons/item/melancholia-4SYTWLM68P/|
+|reshot-icon-winner.svg|reshot|n/a|https://www.reshot.com/free-svg-icons/item/winner-D87WTAELR2/|
+
+all other graphics including favicon were self generated.
 
 <p align="right">(<a href="#contents">back to top</a>)</p>
+
+## Word List
+the comprehensive list of 5 letter words was sourced at:
+
+[Jotto Word List](https://www.easysurf.cc/list6.htm)
+
+as the list was a full dictionary list of ALL words (including profanity, slurs and trigger words), obvious objectionable words were manually removed.
+Further improvement to the list is recommended to remove obscure or obsolote words aswell.
 
 ## License
 
@@ -411,7 +400,6 @@ Project Link: [https://github.com/A-Hoenig/Project-One/tree/main](https://github
 I would like to acknowledge the following people:
 
 * Jubril Akolade - My Code Institute Mentor for the guidance.
+* Martin from the Tutor team who helped me find the tricky "= vs === bug" as well as the issues with the favicon paths. Thanks!
 
-* Milly - for helping with the tricky stuff, especially github and devtools - thanks!
-
-<p align="right">(<a href="#william-cooke-photography-site">back to top</a>)</p>
+<p align="right">(<a href="#contents">back to top</a>)</p>
