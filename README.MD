@@ -294,37 +294,46 @@ Lighthouse test on the deployed site returned 4 x 100% score for
 ## Manual Testing
 
 ### HOME PAGE
-
+**GENERAL TESTS**
 | Feature        | Expect | Action | Result |
 | :-------------- | :------ | :------ | :------ |
-|**GENERAL TESTS** |
 |Initialization|App selects a random word from the given list|initially output to console|works as expected. Console output removed to prevent cheating|
 |Responsiveness|Layout dynamically changes based on screen size|tested on iphone and all desktop browsers|all elements shift and resize as expected|
-|||||
-|||||
-|||||
-|||||
-|||||
-|||||
-|||||
+|Level Selection|User can click on desired level|starts the game and builds the grid|works as expected|
+|Info Button|toggles on and off the info popup|tapping the 'i' during the game recalls the instructions|works as expected|
+|Random Word Selection|a single word assigned to the answer variable at the beginning|word is written to DOM for storage|works as expected|
+|Dynamic play area|number of roaws added: easy =7 normal=6, expert =5|select all levels|works as expected and footer is displayed correctly after n rows|
+|Favicon Display|Favicon loads and is displayed on browser tab|multpile reloads on deplyed and local websites on all browsers|works on deployed site, local host throws console error|
 
-|**PAGE SPECIFIC TESTS** |
-|About section|dynamic resizing of intro text on large screens | tested on selected browsers | works as expected |
-
-### GAMEPLAY
+### GAMEPLAY TESTING
 
 | Feature        | Expect | Action | Result |
 | :-------------- | :------ | :------ | :------ |
-|** GAMEPLAY ** |
 |Layout|Layout dynamically changes based on screen size|tested on iphone and all desktop browsers|all elements shift and resize as expected|
+|Robust input verification|user can only input 5 x a-z/A-Z wrong inputs are rejected and feedback shown in input field|deliberate wrong words input|works as expected|
+|Input with Enter or Submit button|user can input a word by hitting enter or clicking Submit once selected, word is added to grid and input box is cleared|input multiple words clicking with mouse, tapping and using enter|works as expected|
+|Played letters feedback|after a valid word is added, unique letters added to played list above input button list is unique and alphabetical|aplhabet added one by one to veryfy all shown|works as expected|
+|Played letters lists is dynamic for large lists|if close to 26 letters need to be displayed, a dynamic new row is added letters break up before exceeding div|added all 26 letters to check correct display|works as expected|
+|Word grid display|user guess is added to the word grid once verified individual letters displayed on tiles|typed deliberately wrong and correct answers|works as expected|
+|User letter feedback|tiles are colored based on answer orange = bad position green  = correct letter|typed deliberately wrong and correct answers|works as expected, even with double letter words|
+|Game ends as planned after last turn|if answer still not correct display lose screen works for 5, 6 or 7 turn games|deliberately guessed all wrong answers on all plattforms| works as expected|
+|Game ends when user guesses correct word (5 green)|popup should show winner screen and winning word|typed in correct answer on all turns (first to last)|works as expected|
+|Lose screen shows correct answer|is user does not guess correct give feedback to the answer|verified after losing the game|works as expected|
+|Win lose popup show play again button|user can select to play again and site is reloaded play again allows the user to change the level again|tested on win and lose screens|works as expected|
+
 
 ### POPUPS
 
+**SPECIFIC TESTING**
 | Feature        | Expect | Action | Result |
 | :-------------- | :------ | :------ | :------ |
-|**GENERAL TESTS** |
 |Layout|Layout dynamically changes based on screen size|tested on iphone and all desktop browsers|all elements shift and resize as expected|
-
+|Info Pop up shows on start|first thing shows on page load|multiple page loads|works as expected|
+|Info popup toggles with 'i' button|clicking 'i' will hide/show game rules|multiple clicks/taps on all browsers|works as expected|
+|Level popup shown after intro is tapped|shown behind info popup|tapping info popup reveals level select popup|works as expected|
+|Win Popup shows on correct guess|correct word is entered and win message is shown|entered many correct words|shows as expected with correct answer|
+|Lose Popup shows once moves run out|after last guess lose popup shows message and give the answer|play all wrong guesses to trigger loss on all levels|works as expected|
+|All popup as shown centered and float above game area|popups center on screen and hover above game|tested on all browsers with dynamic resizing as well|popups display as expected|
 
 <p align="right">(<a href="#contents">back to top</a>)</p>
 
@@ -347,12 +356,12 @@ The site was tested on three most popular browsers for functionality:
 Safari was tested on both desktop and mobile versions.
 In general the game works as intended on all browsers.
 One issue was discovered during development that could not be fully resolved.
-As per the mockups, the original intent was to have the user input fiels as part of a fixed / sticky header and allow the guess rows to scroll underneath. However, on safari mobile phones, once the user clicks to start typing a word, the onscreen keyboard is presented. in safari, once this happens, it overrides the fixed position of the header and scrolles it off the screen, greatly reducing usability. This is a known issue and a direct easy workaround could not be found. As a result, the overall design was change to add the inuot fields to the footer and add a scrolling feature to the current user guess row to allow the user to type, but then also see the word.
-one more involved fix for this would be to remove the need for the onscreen keyboard by providing a built in on screen keyboard that can be fied moved and styled as needed for ease of use.
+As per the mockups, the original intent was to have the user input fields as part of a fixed / sticky header and allow the guess rows to scroll underneath. However, on safari mobile phones, once the user clicks to start typing a word, the onscreen keyboard is presented. In safari, once this happens, it overrides the fixed position of the header and scrolls it off the screen, greatly reducing usability. This is a known issue and an obvious easy workaround could not be found. As a result, the overall design was changed to add the input fields to the footer and add a scrolling feature to the current user guess row to allow the user to type, but then also see the word feeback once added to the grid.
+A fix for this would be to remove the need for the onscreen keyboard by providing a built in on screen keyboard that can be fixed, moved and styled as needed for ease of use.
 
 ### Known / Fixed Bugs
 
-no major bugs found impacting playability or styling
+No bugs found impacting playability or styling
 
 ## Credits
 
@@ -378,12 +387,12 @@ all other graphics including favicon were self generated.
 <p align="right">(<a href="#contents">back to top</a>)</p>
 
 ## Word List
-the comprehensive list of 5 letter words was sourced at:
+The comprehensive list of 5 letter words was sourced at:
 
 [Jotto Word List](https://www.easysurf.cc/list6.htm)
 
 as the list was a full dictionary list of ALL words (including profanity, slurs and trigger words), obvious objectionable words were manually removed.
-Further improvement to the list is recommended to remove obscure or obsolote words aswell.
+Further improvement to the list is recommended to remove obscure or obsolete words aswell.
 
 ## License
 
