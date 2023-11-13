@@ -314,10 +314,7 @@ tested manually as well as with Am I Responsive Website
 ![Am I responsive](assets/docs/am-i-res1.jpg)
 ![Am I responsive](assets/docs/am-i-res2.jpg)
 
-
-
 <p align="right">(<a href="#contents">back to top</a>)</p>
-
 
 ### Accessibility
 

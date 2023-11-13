@@ -217,6 +217,7 @@ header {
     width: 80%;
     border: 4px solid black;
     border-radius: 10px;
+    background: white;
 }
 
 .level-button:hover {
